@@ -1,0 +1,79 @@
+import React from 'react';
+import Button from '../components/Button';
+import { ShieldCheck, Globe, Clock, HeartPulse } from 'lucide-react';
+import './Home.css';
+
+const Home = () => {
+  return (
+    <div className="home-page animate-fade-in">
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="container hero-container">
+          <div className="hero-content">
+            <div className="hero-badge animate-fade-in">
+              <span className="pulse-dot"></span>
+              24/7 Global Patient Care
+            </div>
+            <h1 className="hero-title animate-fade-in delay-100">
+              World-Class Medical Treatment,<br />
+              <span className="highlight-text">Without the Stress</span>
+            </h1>
+            <p className="hero-subtitle animate-fade-in delay-200">
+              From first consultation to full recovery, we take care of everything. We connect you with trusted hospitals and expert doctors across India and globally.
+            </p>
+            <div className="hero-actions animate-fade-in delay-300">
+              <Button size="lg" variant="primary" to="/contact" className="btn-glow">
+                Get Free Consultation <i className="fa-solid fa-arrow-right" style={{marginLeft: '8px'}}></i>
+              </Button>
+              <Button size="lg" variant="outline" href="https://wa.me/918590896135" icon={<i className="fa-brands fa-whatsapp" style={{ fontSize: '1.2rem' }}></i>} className="btn-whatsapp">
+                WhatsApp Now
+              </Button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Decorative Background Shapes */}
+        <div className="hero-shape shape-1"></div>
+        <div className="hero-shape shape-2"></div>
+      </section>
+
+      {/* Highlights Section */}
+      <section className="highlights section-padding">
+        <div className="container">
+          <div className="highlights-grid">
+            <div className="highlight-item glass-effect">
+              <Clock size={40} className="highlight-icon" />
+              <h3>8+ Years</h3>
+              <p>Of Experience</p>
+            </div>
+            <div className="highlight-item glass-effect delay-100">
+              <Globe size={40} className="highlight-icon" />
+              <h3>10+ Countries</h3>
+              <p>Served Successfully</p>
+            </div>
+            <div className="highlight-item glass-effect delay-200">
+              <ShieldCheck size={40} className="highlight-icon" />
+              <h3>JCI Accredited</h3>
+              <p>Trusted Hospitals</p>
+            </div>
+            <div className="highlight-item glass-effect delay-300">
+              <HeartPulse size={40} className="highlight-icon" />
+              <h3>Expert Doctors</h3>
+              <p>& Specialists</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust & Support Summary */}
+      <section className="support-summary section-padding">
+        <div className="container text-center">
+          <h2>Worldwide Medical Tourism Support</h2>
+          <p className="section-desc">Our 24×7 Patient Care Team is always here for you, everywhere you go.</p>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
