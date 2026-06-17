@@ -6,10 +6,17 @@ const About = () => {
   return (
     <div className="page-container animate-fade-in">
       {/* Page Header */}
-      <section className="page-header">
-        <div className="container text-center">
-          <h1>About Us</h1>
-          <p>Connecting patients with world-class hospitals and specialists.</p>
+      <section className="page-header" style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)', padding: '3rem 0' }}>
+        <div className="container">
+          <div className="main-page-glass-strip">
+            <div className="main-page-glass-icon">
+              <CheckCircle2 size={32} />
+            </div>
+            <div className="main-page-glass-text">
+              <h1>About Us</h1>
+              <p>Connecting patients with world-class hospitals and specialists.</p>
+            </div>
+          </div>
         </div>
       </section>
 

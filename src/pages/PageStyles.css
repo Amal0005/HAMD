@@ -7,19 +7,161 @@
 .page-header {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: white;
-  padding: 6rem 0 4rem 0;
+  padding: 4rem 0 3rem 0;
   position: relative;
   overflow: hidden;
+  z-index: 1;
+}
+
+.page-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: -1;
+  pointer-events: none;
+}
+
+.header-glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 3rem 2rem;
+  border-radius: var(--radius-xl);
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Split Hero Design for Treatment Pages */
+.split-hero-header {
+  position: relative;
+  padding: 4rem 0 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background-color: #ffffff; /* Right side white */
+}
+
+.split-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  z-index: -2;
+  /* background color is set inline per page */
+}
+
+.split-hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: -1;
+  pointer-events: none;
+}
+
+.split-hero-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-xl);
+  max-width: 600px;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.split-hero-card h1 {
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.split-hero-card p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+@keyframes slideUpFade {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Main Navigation Page Headers (About, Services, Treatments, Contact) */
+.main-page-glass-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.5rem 2.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.main-page-glass-icon {
+  background: white;
+  padding: 1rem;
+  border-radius: 50%;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.main-page-glass-text {
+  text-align: left;
+}
+
+.main-page-glass-text h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  text-shadow: none;
+  color: white;
+}
+
+.main-page-glass-text p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1rem;
+  max-width: none;
 }
 
 .page-header h1 {
   color: white;
   margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .page-header p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.15rem;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -183,6 +325,37 @@
   margin-bottom: 0.25rem;
 }
 
+/* Contact Page Specifics */
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.contact-icon-wrapper {
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.support-box {
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+}
+
 /* Responsive adjustments */
 @media (max-width: 991px) {
   .content-grid {
@@ -222,10 +395,48 @@
 
 @media (max-width: 576px) {
   .page-header {
-    padding: 4rem 0 2rem 0;
+    padding: 5rem 0 2rem 0;
   }
   .page-header p {
     font-size: 1rem;
+  }
+  .split-hero-header {
+    padding: 5rem 0 2rem 0;
+  }
+  .split-hero-card {
+    padding: 1.5rem 1.25rem;
+    width: 95%;
+  }
+  .split-hero-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+  }
+  .split-hero-card p {
+    font-size: 0.95rem;
+  }
+  .main-page-glass-strip {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.15);
+  }
+  .main-page-glass-text {
+    text-align: center;
+  }
+  .main-page-glass-text h1 {
+    font-size: 2rem;
+  }
+  .main-page-glass-text p {
+    font-size: 0.95rem;
+  }
+  .main-page-glass-icon {
+    padding: 0.75rem;
+  }
+  .main-page-glass-icon svg {
+    width: 28px;
+    height: 28px;
   }
   .content-grid {
     gap: 2rem;
@@ -239,5 +450,14 @@
   }
   .mv-card {
     padding: 2rem 1.5rem;
+  }
+  .contact-link {
+    font-size: 1rem;
+  }
+  .contact-icon-wrapper {
+    padding: 0.75rem;
+  }
+  .support-box {
+    padding: 1.5rem;
   }
 }

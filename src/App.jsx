@@ -11,6 +11,13 @@ import Treatments from './pages/Treatments';
 import CosmeticSurgery from './pages/CosmeticSurgery';
 import OrthopedicCare from './pages/OrthopedicCare';
 import WellnessAyurveda from './pages/WellnessAyurveda';
+import Cardiology from './pages/Cardiology';
+import Oncology from './pages/Oncology';
+import IvfFertility from './pages/IvfFertility';
+import Ophthalmology from './pages/Ophthalmology';
+import Neurology from './pages/Neurology';
+import Urology from './pages/Urology';
+import Gastroenterology from './pages/Gastroenterology';
 import Contact from './pages/Contact';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 
@@ -38,6 +45,13 @@ const App = () => {
           <Route path="/cosmetic-surgery" element={<CosmeticSurgery />} />
           <Route path="/orthopedic-care" element={<OrthopedicCare />} />
           <Route path="/wellness-ayurveda" element={<WellnessAyurveda />} />
+          <Route path="/cardiology" element={<Cardiology />} />
+          <Route path="/oncology" element={<Oncology />} />
+          <Route path="/ivf-fertility" element={<IvfFertility />} />
+          <Route path="/ophthalmology" element={<Ophthalmology />} />
+          <Route path="/neurology" element={<Neurology />} />
+          <Route path="/urology" element={<Urology />} />
+          <Route path="/gastroenterology" element={<Gastroenterology />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

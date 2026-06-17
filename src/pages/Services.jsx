@@ -21,10 +21,17 @@ const Services = () => {
 
   return (
     <div className="page-container animate-fade-in">
-      <section className="page-header">
-        <div className="container text-center">
-          <h1>Our Services</h1>
-          <p>Complete Medical Travel Support, managing every step of your journey.</p>
+      <section className="page-header" style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)', padding: '3rem 0' }}>
+        <div className="container">
+          <div className="main-page-glass-strip">
+            <div className="main-page-glass-icon">
+              <FileCheck size={32} />
+            </div>
+            <div className="main-page-glass-text">
+              <h1>Our Services</h1>
+              <p>Complete Medical Travel Support, managing every step of your journey.</p>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Home as HomeIcon, Info, Briefcase, HeartPulse, Mail } from 'lucide-react';
 import Button from './Button';
 import './Navbar.css';
 
@@ -11,6 +11,25 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,15 +44,15 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Treatments', path: '/treatments' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: '/', icon: <HomeIcon size={16} /> },
+    { name: 'About', path: '/about', icon: <Info size={16} /> },
+    { name: 'Services', path: '/services', icon: <Briefcase size={16} /> },
+    { name: 'Treatments', path: '/treatments', icon: <HeartPulse size={16} /> },
+    { name: 'Contact', path: '/contact', icon: <Mail size={16} /> },
   ];
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+    <header ref={navRef} className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
           <img src="/LogoHAMD.png" alt="HAMD Med Connect" className="logo-img" />
@@ -74,7 +93,9 @@ const Navbar = () => {
               className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
               onClick={closeMenu}
             >
+              <span className="mobile-nav-icon">{link.icon}</span>
               {link.name}
+              <i className="fa-solid fa-chevron-right mobile-nav-arrow"></i>
             </Link>
           ))}
           <div className="mobile-nav-actions">

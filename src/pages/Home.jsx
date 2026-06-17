@@ -23,7 +23,7 @@ const Home = () => {
             </p>
             <div className="hero-actions animate-fade-in delay-300">
               <Button size="lg" variant="primary" to="/contact" className="btn-glow">
-                Get Free Consultation <i className="fa-solid fa-arrow-right" style={{marginLeft: '8px'}}></i>
+                Free Consultation <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }}></i>
               </Button>
               <Button size="lg" variant="outline" href="https://wa.me/918590896135" icon={<i className="fa-brands fa-whatsapp" style={{ fontSize: '1.2rem' }}></i>} className="btn-whatsapp">
                 WhatsApp Now
@@ -31,7 +31,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Decorative Background Shapes */}
         <div className="hero-shape shape-1"></div>
         <div className="hero-shape shape-2"></div>
