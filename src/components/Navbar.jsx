@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Home as HomeIcon, Info, Briefcase, HeartPulse, Mail } from 'lucide-react';
 import Button from './Button';
@@ -11,25 +11,6 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
-  const navRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('touchstart', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
-    };
-  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +33,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header ref={navRef} className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+    <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
           <img src="/LogoHAMD.png" alt="HAMD Med Connect" className="logo-img" />
@@ -61,9 +42,9 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <nav className="navbar-links desktop-nav">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path} 
+            <Link
+              key={link.name}
+              to={link.path}
               className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
             >
               {link.name}
@@ -73,7 +54,7 @@ const Navbar = () => {
 
         <div className="navbar-actions desktop-nav">
           <Button variant="primary" icon={<Phone size={18} />} to="/contact">
-            Get Free Consultation
+            Free Consultation
           </Button>
         </div>
 
@@ -87,9 +68,9 @@ const Navbar = () => {
       <div className={`mobile-nav ${isOpen ? 'open' : ''}`}>
         <nav className="mobile-nav-links">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path} 
+            <Link
+              key={link.name}
+              to={link.path}
               className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
               onClick={closeMenu}
             >
@@ -100,7 +81,7 @@ const Navbar = () => {
           ))}
           <div className="mobile-nav-actions">
             <Button variant="primary" className="full-width" icon={<Phone size={18} />} to="/contact" onClick={closeMenu}>
-              Get Free Consultation
+              Free Consultation
             </Button>
           </div>
         </nav>

@@ -51,6 +51,7 @@
 @media (max-width: 768px) {
   .logo-img {
     height: 60px;
+    margin-left: -5px; /* Moves logo to the left on mobile */
   }
 }
 
