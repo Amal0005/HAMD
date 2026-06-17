@@ -25,7 +25,7 @@ const Home = () => {
               <Button size="lg" variant="primary" to="/contact" className="btn-glow">
                 Free Consultation <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }}></i>
               </Button>
-              <Button size="lg" variant="outline" href="https://wa.me/918590896135" icon={<i className="fa-brands fa-whatsapp" style={{ fontSize: '1.2rem' }}></i>} className="btn-whatsapp">
+              <Button size="lg" variant="outline" href={import.meta.env.VITE_WHATSAPP_URL} icon={<i className="fa-brands fa-whatsapp" style={{ fontSize: '1.2rem' }}></i>} className="btn-whatsapp">
                 WhatsApp Now
               </Button>
             </div>

@@ -55,15 +55,15 @@ const Footer = () => {
             <ul className="footer-contact">
               <li>
                 <Phone size={18} />
-                <span>+91 85908 96135</span>
+                <span>{import.meta.env.VITE_CONTACT_PHONE}</span>
               </li>
               <li>
                 <i className="fa-brands fa-whatsapp" style={{ fontSize: '18px' }}></i>
-                <span>+91 85908 96135</span>
+                <span>{import.meta.env.VITE_CONTACT_PHONE}</span>
               </li>
               <li>
                 <Mail size={18} />
-                <span>Info.hamdmedicaltourism@gmail.com</span>
+                <span>{import.meta.env.VITE_CONTACT_EMAIL}</span>
               </li>
               <li>
                 <MapPin size={18} />

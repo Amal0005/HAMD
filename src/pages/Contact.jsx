@@ -39,23 +39,23 @@ const Contact = () => {
               </p>
 
               <div className="contact-methods">
-                <a href="tel:+918590896135" className="contact-link">
+                <a href={`tel:${import.meta.env.VITE_CONTACT_PHONE_LINK}`} className="contact-link">
                   <div className="contact-icon-wrapper" style={{ background: 'var(--primary-light)', color: 'var(--primary)' }}>
                     <Phone size={24} />
                   </div>
-                  <span>+91 85908 96135</span>
+                  <span>{import.meta.env.VITE_CONTACT_PHONE}</span>
                 </a>
-                <a href="https://wa.me/918590896135" className="contact-link">
+                <a href={import.meta.env.VITE_WHATSAPP_URL} className="contact-link">
                   <div className="contact-icon-wrapper" style={{ background: '#dcf8c6', color: '#128c7e' }}>
                     <i className="fa-brands fa-whatsapp" style={{ fontSize: '24px' }}></i>
                   </div>
                   <span>WhatsApp Now</span>
                 </a>
-                <a href="mailto:Info.hamdmedicaltourism@gmail.com" className="contact-link">
+                <a href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL}`} className="contact-link">
                   <div className="contact-icon-wrapper" style={{ background: 'var(--primary-light)', color: 'var(--primary)' }}>
                     <Mail size={24} />
                   </div>
-                  <span style={{ wordBreak: 'break-all' }}>Info.hamdmedicaltourism@gmail.com</span>
+                  <span style={{ wordBreak: 'break-all' }}>{import.meta.env.VITE_CONTACT_EMAIL}</span>
                 </a>
               </div>
             </div>
@@ -72,7 +72,7 @@ const Contact = () => {
                 ))}
               </ul>
 
-              <Button size="lg" variant="primary" style={{ width: '100%' }} href="https://wa.me/918590896135">
+              <Button size="lg" variant="primary" style={{ width: '100%' }} href={import.meta.env.VITE_WHATSAPP_URL}>
                 Get Free Consultation
               </Button>
             </div>
