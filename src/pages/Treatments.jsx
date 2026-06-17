@@ -37,7 +37,7 @@ const Treatments = () => {
         <div className="container">
           <div className="grid-3">
             {treatments.map((t, index) => (
-              <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
+              <div key={index} data-aos="fade-up" data-aos-delay={index * 100}>
                 {t.path ? (
                   <Link to={t.path} style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
                     <TreatmentCard icon={t.icon} title={t.title} description={t.desc} />

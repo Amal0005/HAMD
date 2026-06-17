@@ -15,7 +15,7 @@ const CosmeticSurgery = () => {
       <section className="split-hero-header">
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #f43f5e 0%, #c1121f 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
-          <div className="split-hero-card">
+          <div className="split-hero-card" data-aos="fade-up">
             <Scissors size={48} color="#f43f5e" style={{ marginBottom: '1rem' }} />
             <h1>Cosmetic Surgery</h1>
             <p>Enhance Your Confidence with Safe Procedures</p>
@@ -46,7 +46,7 @@ const CosmeticSurgery = () => {
                   </div>
                   
                   {/* Icon Card Side */}
-                  <div className="glass-effect" style={{ width: '120px', height: '120px', flexShrink: 0, borderRadius: 'var(--radius-xl)', display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(135deg, var(--surface-color) 0%, #ffe4e6 100%)', border: '1px solid #fda4af', boxShadow: '0 10px 25px rgba(244,63,94,0.15)' }}>
+                  <div className="glass-effect" data-aos="fade-up" style={{ width: '120px', height: '120px', flexShrink: 0, borderRadius: 'var(--radius-xl)', display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(135deg, var(--surface-color) 0%, #ffe4e6 100%)', border: '1px solid #fda4af', boxShadow: '0 10px 25px rgba(244,63,94,0.15)' }}>
                     <Scissors size={40} color="#f43f5e" />
                   </div>
 
@@ -56,15 +56,15 @@ const CosmeticSurgery = () => {
           </div>
 
           <div className="trust-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginTop: '5rem' }}>
-            <div className="trust-item glass-effect" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
+            <div className="trust-item glass-effect" data-aos="zoom-in" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
               <Star className="trust-icon" color="#f43f5e" />
               <h4 style={{ margin: 0 }}>Experienced Surgeons</h4>
             </div>
-            <div className="trust-item glass-effect" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
+            <div className="trust-item glass-effect" data-aos="zoom-in" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
               <ShieldCheck className="trust-icon" color="#f43f5e" />
               <h4 style={{ margin: 0 }}>Modern Techniques</h4>
             </div>
-            <div className="trust-item glass-effect" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
+            <div className="trust-item glass-effect" data-aos="zoom-in" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
               <Star className="trust-icon" color="#f43f5e" />
               <h4 style={{ margin: 0 }}>Safe & Comfortable Care</h4>
             </div>

@@ -37,14 +37,14 @@ const Services = () => {
 
       <section className="section-padding">
         <div className="container">
-          <div className="text-center mb-lg">
+          <div className="text-center mb-lg" data-aos="fade-up">
             <h2 className="section-title">We Manage Every Step</h2>
             <p className="large-text">From your home to full recovery, HAMD Med Care is by your side.</p>
           </div>
           
           <div className="process-list">
             {steps.map((step, index) => (
-              <div key={index} className="process-step animate-fade-in" style={{ animationDelay: `${index * 50}ms` }}>
+              <div key={index} className="process-step" data-aos="fade-up" data-aos-delay={index * 50}>
                 <div className="step-icon">
                   {step.icon}
                 </div>

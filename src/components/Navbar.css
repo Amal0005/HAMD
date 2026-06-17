@@ -102,17 +102,44 @@
   border: none;
   color: var(--primary);
   cursor: pointer;
-  padding: 0.5rem;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-full);
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.mobile-toggle svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -14px; /* 28px / 2 */
+  margin-left: -14px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.icon-menu {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.icon-close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.mobile-toggle.open .icon-menu {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+.mobile-toggle.open .icon-close {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 .mobile-toggle:hover {
   background-color: rgba(2, 82, 138, 0.05);
-}
-
-.mobile-toggle:active {
-  transform: scale(0.9);
 }
 
 .mobile-nav {
@@ -129,6 +156,7 @@
   overflow: hidden;
   opacity: 0;
   visibility: hidden;
+  transform: scale(0.95) translateY(-10px);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid var(--border-color);
   transform-origin: top right;
@@ -138,6 +166,7 @@
   max-height: 600px;
   opacity: 1;
   visibility: visible;
+  transform: scale(1) translateY(0);
 }
 
 .mobile-nav-links {

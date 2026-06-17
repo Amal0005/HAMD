@@ -16,7 +16,7 @@ const IvfFertility = () => {
       <section className="split-hero-header">
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #ec4899 0%, #be185d 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
-          <div className="split-hero-card">
+          <div className="split-hero-card" data-aos="fade-up">
             <UserPlus size={48} color="#ec4899" style={{ marginBottom: '1rem' }} />
             <h1>IVF & Fertility</h1>
             <p>Comprehensive fertility treatments and specialized care</p>
@@ -39,11 +39,11 @@ const IvfFertility = () => {
             <div style={{ position: 'absolute', left: '24px', top: '0', bottom: '0', width: '4px', background: '#fce7f3', borderRadius: '2px', zIndex: 1 }}></div>
             
             {steps.map((step, idx) => (
-              <div key={idx} style={{ display: 'flex', gap: '2rem', marginBottom: '3rem', position: 'relative', zIndex: 2 }}>
+              <div key={idx} style={{ display: 'flex', gap: '2rem', marginBottom: '3rem', position: 'relative', zIndex: 2 }} data-aos="fade-up">
                 <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: '#ec4899', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold', fontSize: '1.25rem', flexShrink: 0, border: '6px solid var(--bg-color)', boxShadow: '0 4px 10px rgba(236,72,153,0.3)' }}>
                   {idx + 1}
                 </div>
-                <div className="glass-effect" style={{ padding: '2rem', borderRadius: 'var(--radius-lg)', flexGrow: 1, borderLeft: '4px solid #ec4899' }}>
+                <div className="glass-effect" data-aos="fade-up" style={{ padding: '2rem', borderRadius: 'var(--radius-lg)', flexGrow: 1, borderLeft: '4px solid #ec4899' }}>
                   <h3 style={{ color: '#ec4899', marginBottom: '0.75rem', fontSize: '1.3rem' }}>{step.title}</h3>
                   <p style={{ margin: 0, color: 'var(--text-main)', lineHeight: 1.6 }}>{step.desc}</p>
                 </div>
@@ -52,15 +52,15 @@ const IvfFertility = () => {
           </div>
 
           <div className="trust-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginTop: '4rem' }}>
-            <div className="trust-item glass-effect" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
+            <div className="trust-item glass-effect" data-aos="zoom-in" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
               <Star className="trust-icon" color="#ec4899" />
               <h4 style={{ margin: 0 }}>High Success Rates</h4>
             </div>
-            <div className="trust-item glass-effect" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
+            <div className="trust-item glass-effect" data-aos="zoom-in" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
               <ShieldCheck className="trust-icon" color="#ec4899" />
               <h4 style={{ margin: 0 }}>Advanced Labs</h4>
             </div>
-            <div className="trust-item glass-effect" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
+            <div className="trust-item glass-effect" data-aos="zoom-in" style={{ flexDirection: 'row', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
               <Star className="trust-icon" color="#ec4899" />
               <h4 style={{ margin: 0 }}>Emotional Support</h4>
             </div>

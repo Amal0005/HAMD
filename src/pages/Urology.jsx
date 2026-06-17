@@ -15,7 +15,7 @@ const Urology = () => {
       <section className="split-hero-header">
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #f59e0b 0%, #b45309 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
-          <div className="split-hero-card">
+          <div className="split-hero-card" data-aos="fade-up">
             <Activity size={48} color="#f59e0b" style={{ marginBottom: '1rem' }} />
             <h1>Urology</h1>
             <p>Advanced Urological Care</p>
@@ -31,7 +31,7 @@ const Urology = () => {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
             {procedures.map((proc, idx) => (
-              <div key={idx} className="glass-effect" style={{ padding: '2rem', borderRadius: 'var(--radius-lg)', borderTop: '4px solid #b45309' }}>
+              <div key={idx} className="glass-effect" data-aos="fade-up" style={{ padding: '2rem', borderRadius: 'var(--radius-lg)', borderTop: '4px solid #b45309' }}>
                 <h3 style={{ color: '#b45309', marginBottom: '1rem' }}>{proc.title}</h3>
                 <p style={{ color: 'var(--text-muted)', margin: 0 }}>{proc.desc}</p>
               </div>

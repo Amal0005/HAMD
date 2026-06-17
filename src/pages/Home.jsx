@@ -41,22 +41,22 @@ const Home = () => {
       <section className="highlights section-padding">
         <div className="container">
           <div className="highlights-grid">
-            <div className="highlight-item glass-effect">
+            <div className="highlight-item glass-effect" data-aos="fade-up" data-aos-delay="0">
               <Clock size={40} className="highlight-icon" />
               <h3>8+ Years</h3>
               <p>Of Experience</p>
             </div>
-            <div className="highlight-item glass-effect delay-100">
+            <div className="highlight-item glass-effect" data-aos="fade-up" data-aos-delay="100">
               <Globe size={40} className="highlight-icon" />
               <h3>10+ Countries</h3>
               <p>Served Successfully</p>
             </div>
-            <div className="highlight-item glass-effect delay-200">
+            <div className="highlight-item glass-effect" data-aos="fade-up" data-aos-delay="200">
               <ShieldCheck size={40} className="highlight-icon" />
               <h3>JCI Accredited</h3>
               <p>Trusted Hospitals</p>
             </div>
-            <div className="highlight-item glass-effect delay-300">
+            <div className="highlight-item glass-effect" data-aos="fade-up" data-aos-delay="300">
               <HeartPulse size={40} className="highlight-icon" />
               <h3>Expert Doctors</h3>
               <p>& Specialists</p>
@@ -66,7 +66,7 @@ const Home = () => {
       </section>
 
       {/* Trust & Support Summary */}
-      <section className="support-summary section-padding">
+      <section className="support-summary section-padding" data-aos="zoom-in">
         <div className="container text-center">
           <h2>Worldwide Medical Tourism Support</h2>
           <p className="section-desc">Our 24×7 Patient Care Team is always here for you, everywhere you go.</p>

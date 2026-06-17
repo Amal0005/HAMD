@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Pages
 import Home from './pages/Home';
@@ -32,6 +34,15 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true, // Whether animation should happen only once - while scrolling down
+      offset: 50, // Offset (in px) from the original trigger point
+      easing: 'ease-out-cubic',
+    });
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />

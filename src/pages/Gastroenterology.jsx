@@ -15,7 +15,7 @@ const Gastroenterology = () => {
       <section className="split-hero-header">
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #059669 0%, #064e3b 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
-          <div className="split-hero-card">
+          <div className="split-hero-card" data-aos="fade-up">
             <Pill size={48} color="#059669" style={{ marginBottom: '1rem' }} />
             <h1>Gastroenterology</h1>
             <p>Expert Digestive & Liver Care</p>
@@ -31,7 +31,7 @@ const Gastroenterology = () => {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
             {procedures.map((proc, idx) => (
-              <div key={idx} className="glass-effect" style={{ padding: '2rem', borderRadius: 'var(--radius-lg)', borderTop: '4px solid #059669' }}>
+              <div key={idx} className="glass-effect" data-aos="fade-up" style={{ padding: '2rem', borderRadius: 'var(--radius-lg)', borderTop: '4px solid #059669' }}>
                 <h3 style={{ color: '#059669', marginBottom: '1rem' }}>{proc.title}</h3>
                 <p style={{ color: 'var(--text-muted)', margin: 0 }}>{proc.desc}</p>
               </div>

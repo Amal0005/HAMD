@@ -17,7 +17,7 @@ const Neurology = () => {
       <section className="split-hero-header">
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #4c1d95 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
-          <div className="split-hero-card">
+          <div className="split-hero-card" data-aos="fade-up">
             <Brain size={48} color="#8b5cf6" style={{ marginBottom: '1rem' }} />
             <h1>Neurology</h1>
             <p>Advanced brain and nerve-related treatments</p>
@@ -39,7 +39,7 @@ const Neurology = () => {
                 {procedures.map((proc, idx) => {
                   const isOpen = openIndex === idx;
                   return (
-                    <div key={idx} className="glass-effect" style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: `1px solid ${isOpen ? '#8b5cf6' : 'rgba(0,0,0,0.05)'}`, transition: 'all 0.3s' }}>
+                    <div key={idx} className="glass-effect" data-aos="fade-up" style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: `1px solid ${isOpen ? '#8b5cf6' : 'rgba(0,0,0,0.05)'}`, transition: 'all 0.3s' }}>
                       <button 
                         onClick={() => setOpenIndex(isOpen ? -1 : idx)}
                         style={{ width: '100%', background: 'transparent', border: 'none', padding: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', textAlign: 'left' }}
@@ -65,15 +65,15 @@ const Neurology = () => {
             </div>
 
             <div className="trust-grid" style={{ gridTemplateColumns: '1fr', gap: '1.5rem' }}>
-              <div className="trust-item glass-effect" style={{ flexDirection: 'row', padding: '1.5rem' }}>
+              <div className="trust-item glass-effect" data-aos="zoom-in" style={{ flexDirection: 'row', padding: '1.5rem' }}>
                 <Star className="trust-icon" color="#8b5cf6" />
                 <h4 style={{ margin: 0 }}>Expert Neurologists</h4>
               </div>
-              <div className="trust-item glass-effect" style={{ flexDirection: 'row', padding: '1.5rem' }}>
+              <div className="trust-item glass-effect" data-aos="zoom-in" style={{ flexDirection: 'row', padding: '1.5rem' }}>
                 <ShieldCheck className="trust-icon" color="#8b5cf6" />
                 <h4 style={{ margin: 0 }}>Modern Technology</h4>
               </div>
-              <div className="trust-item glass-effect" style={{ flexDirection: 'row', padding: '1.5rem' }}>
+              <div className="trust-item glass-effect" data-aos="zoom-in" style={{ flexDirection: 'row', padding: '1.5rem' }}>
                 <Star className="trust-icon" color="#8b5cf6" />
                 <h4 style={{ margin: 0 }}>Safe & Comfortable Care</h4>
               </div>

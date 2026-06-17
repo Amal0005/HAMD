@@ -32,7 +32,7 @@ const Contact = () => {
         <div className="container">
           <div className="content-grid">
             {/* Support Info */}
-            <div className="content-text">
+            <div className="content-text" data-aos="fade-right">
               <h2 className="section-title">We are here for you</h2>
               <p className="large-text mb-lg">
                 Reach out to our experts today to start planning your medical journey.
@@ -61,7 +61,7 @@ const Contact = () => {
             </div>
 
             {/* Support List & Form */}
-            <div className="glass-effect support-box">
+            <div className="glass-effect support-box" data-aos="fade-left">
               <h3 style={{ marginBottom: '1.5rem', color: 'var(--primary)' }}>What you get</h3>
               <ul style={{ padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
                 {supports.map((support, idx) => (
