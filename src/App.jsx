@@ -22,6 +22,7 @@ import Urology from './pages/Urology';
 import Gastroenterology from './pages/Gastroenterology';
 import Contact from './pages/Contact';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import LoadingScreen from './components/LoadingScreen';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -45,6 +46,7 @@ const App = () => {
 
   return (
     <Router>
+      <LoadingScreen />
       <ScrollToTop />
       <Navbar />
       <main style={{ minHeight: '100vh', paddingTop: '80px' }}>
