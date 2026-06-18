@@ -31,7 +31,8 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  flex: 1; /* Takes up equal space as actions to perfectly center links */
+  flex: 1;
+  /* Takes up equal space as actions to perfectly center links */
 }
 
 .navbar-logo span {
@@ -40,18 +41,22 @@
 }
 
 .logo-img {
-  height: 60px; /* Base height */
+  height: 60px;
+  /* Base height */
   width: auto;
   display: block;
-  transform: scale(1.8); /* Slightly scaled so it's not too small, but doesn't overlap */
+  transform: scale(1.8);
+  /* Slightly scaled so it's not too small, but doesn't overlap */
   transform-origin: left center;
-  margin-left: 20px; /* Compensate for scaling to left */
+  margin-left: 20px;
+  /* Compensate for scaling to left */
 }
 
 @media (max-width: 768px) {
   .logo-img {
     height: 60px;
-    margin-left: -5px; /* Moves logo to the left on mobile */
+    margin-left: -5px;
+    /* Moves logo to the left on mobile */
   }
 }
 
@@ -59,12 +64,14 @@
   display: flex;
   gap: 2rem;
   justify-content: center;
+  align-items: center;
 }
 
 .navbar-actions {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .nav-link {
@@ -113,7 +120,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -14px; /* 28px / 2 */
+  margin-top: -14px;
+  /* 28px / 2 */
   margin-left: -14px;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
@@ -187,7 +195,7 @@
   align-items: center;
   gap: 0.75rem;
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .mobile-nav-icon {
@@ -256,13 +264,82 @@
   .navbar {
     padding: 0.75rem 0;
   }
+
   .navbar-scrolled {
     padding: 0.75rem 0;
   }
+
   .desktop-nav {
     display: none;
   }
+
   .mobile-toggle {
     display: block;
   }
+}
+
+/* Custom Navbar Consultation Button - Simple & Different Design */
+.navbar-consult-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.navbar-consult-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+  border-radius: 100px;
+}
+
+.navbar-consult-btn:hover {
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 10px 25px rgba(2, 82, 138, 0.2);
+  transform: translateY(-2px);
+}
+
+.navbar-consult-btn:hover::before {
+  transform: translateY(0);
+}
+
+.navbar-consult-btn-icon {
+  color: var(--primary);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-consult-btn:hover .navbar-consult-btn-icon {
+  color: white;
+  transform: rotate(15deg) scale(1.1);
+}
+
+.navbar-consult-btn.mobile-full {
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 0.5rem;
 }

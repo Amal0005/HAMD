@@ -46,8 +46,6 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/', icon: <HomeIcon size={16} /> },
     { name: 'About', path: '/about', icon: <Info size={16} /> },
-    { name: 'Services', path: '/services', icon: <Briefcase size={16} /> },
-    { name: 'Treatments', path: '/treatments', icon: <HeartPulse size={16} /> },
     { name: 'Contact', path: '/contact', icon: <Mail size={16} /> },
   ];
 
@@ -72,9 +70,10 @@ const Navbar = () => {
         </nav>
 
         <div className="navbar-actions desktop-nav">
-          <Button variant="primary" icon={<Phone size={18} />} to="/contact">
-            Free Consultation
-          </Button>
+          <Link to="/contact" className="navbar-consult-btn">
+            <span className="navbar-consult-btn-icon"><Phone size={18} /></span>
+            <span>Free Consultation</span>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -100,9 +99,10 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="mobile-nav-actions">
-            <Button variant="primary" className="full-width" icon={<Phone size={18} />} to="/contact" onClick={closeMenu}>
-              Free Consultation
-            </Button>
+            <Link to="/contact" className="navbar-consult-btn mobile-full" onClick={closeMenu}>
+              <span className="navbar-consult-btn-icon"><Phone size={18} /></span>
+              <span>Free Consultation</span>
+            </Link>
           </div>
         </nav>
       </div>

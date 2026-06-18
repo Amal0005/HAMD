@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../components/Button';
-import { ShieldCheck, Globe, Clock, HeartPulse } from 'lucide-react';
+import { ShieldCheck, Globe, Clock, HeartPulse, Briefcase } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
@@ -61,6 +61,21 @@ const Home = () => {
               <h3>Expert Doctors</h3>
               <p>& Specialists</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Explore Offerings Section */}
+      <section className="explore-offerings section-padding" data-aos="fade-up" style={{ backgroundColor: 'rgba(2, 82, 138, 0.03)' }}>
+        <div className="container text-center">
+          <h2 style={{ marginBottom: '2rem', color: 'var(--primary)' }}>Explore Our Medical Offerings</h2>
+          <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Button size="lg" variant="primary" to="/services" icon={<Briefcase size={20} />}>
+              Our Services
+            </Button>
+            <Button size="lg" variant="secondary" to="/treatments" icon={<HeartPulse size={20} />}>
+              Specialized Treatments
+            </Button>
           </div>
         </div>
       </section>
