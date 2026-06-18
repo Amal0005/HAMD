@@ -16,7 +16,7 @@ const Home = () => {
             </div>
             <h1 className="hero-title animate-fade-in delay-100">
               World-Class Medical Treatment,<br />
-              <span className="highlight-text">Without the Stress</span>
+              <span className="highlight-text">Without Stress</span>
             </h1>
             <p className="hero-subtitle animate-fade-in delay-200">
               From first consultation to full recovery, we take care of everything. We connect you with trusted hospitals and expert doctors across India and globally.
