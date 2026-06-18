@@ -200,6 +200,15 @@
   }
 }
 
+.offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
 @media (max-width: 576px) {
   .hero {
     padding-top: 10px;
@@ -279,5 +288,10 @@
 
   .hero-actions>*:last-child {
     border-radius: 6px 24px 6px 24px;
+  }
+
+  .offerings-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }

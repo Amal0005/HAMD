@@ -1,9 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-import { ShieldCheck, Globe, Clock, HeartPulse, Briefcase } from 'lucide-react';
+import TreatmentCard from '../components/TreatmentCard';
+import { ShieldCheck, Globe, Clock, HeartPulse, Briefcase, Heart, Activity, UserPlus, FlaskConical, Eye, Scissors } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
+  const topTreatments = [
+    { icon: <Heart />, title: "Cardiology", desc: "Heart surgery, angioplasty, bypass surgery, and comprehensive cardiac care.", path: "/cardiology" },
+    { icon: <Activity />, title: "Orthopedics", desc: "Joint replacement, spine surgery, and advanced sports injury treatment.", path: "/orthopedic-care" },
+    { icon: <UserPlus />, title: "Oncology", desc: "Advanced cancer diagnosis, chemotherapy, radiation therapy, and surgical oncology.", path: "/oncology" },
+    { icon: <FlaskConical />, title: "IVF & Fertility", desc: "Comprehensive fertility treatments with high success rates.", path: "/ivf-fertility" },
+    { icon: <Eye />, title: "Ophthalmology", desc: "Cataract, LASIK, retina treatments, and advanced eye care.", path: "/ophthalmology" },
+    { icon: <Scissors />, title: "Cosmetic & Plastic Surgery", desc: "Rhinoplasty, liposuction, facelift, and aesthetic procedures.", path: "/cosmetic-surgery" },
+  ];
   return (
     <div className="home-page animate-fade-in">
       {/* Hero Section */}
@@ -66,15 +76,15 @@ const Home = () => {
       </section>
 
       {/* Explore Offerings Section */}
-      <section className="explore-offerings section-padding" data-aos="fade-up" style={{ backgroundColor: 'rgba(2, 82, 138, 0.03)' }}>
+      <section className="explore-offerings" data-aos="fade-up" style={{ backgroundColor: 'rgba(2, 82, 138, 0.03)', padding: '2.5rem 0' }}>
         <div className="container text-center">
-          <h2 style={{ marginBottom: '2rem', color: 'var(--primary)' }}>Explore Our Medical Offerings</h2>
+          <h2 style={{ marginBottom: '1.5rem', color: 'var(--primary)' }}>Explore Our Medical Offerings</h2>
           <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button size="lg" variant="primary" to="/services" icon={<Briefcase size={20} />}>
-              Our Services
+            <Button size="lg" variant="primary" to="/treatments" icon={<HeartPulse size={20} />}>
+              View All Treatments
             </Button>
-            <Button size="lg" variant="secondary" to="/treatments" icon={<HeartPulse size={20} />}>
-              Specialized Treatments
+            <Button size="lg" variant="secondary" to="/services" icon={<Briefcase size={20} />}>
+              Our Services
             </Button>
           </div>
         </div>
