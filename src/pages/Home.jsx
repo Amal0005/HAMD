@@ -34,7 +34,7 @@ const Home = () => {
             </p>
             <div className="hero-actions animate-fade-in delay-300">
               <Button size="lg" variant="primary" to="/contact" className="btn-glow">
-                Speak with our medical experts <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }}></i>
+                Speak with medical experts
               </Button>
               <Button size="lg" variant="outline" href={import.meta.env.VITE_WHATSAPP_URL} icon={<i className="fa-brands fa-whatsapp" style={{ fontSize: '1.2rem' }}></i>} className="btn-whatsapp">
                 WhatsApp Now

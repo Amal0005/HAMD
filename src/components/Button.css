@@ -73,3 +73,23 @@
   display: flex;
   align-items: center;
 }
+
+@media (max-width: 576px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+    border-radius: 12px;
+    /* Avoid stretched pill shapes if it wraps */
+  }
+
+  .btn-lg {
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .btn-md {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+  }
+}
