@@ -73,7 +73,7 @@ const Contact = () => {
               </ul>
 
               <Button size="lg" variant="primary" style={{ width: '100%' }} href={import.meta.env.VITE_WHATSAPP_URL}>
-                Get Free Consultation
+                Speak with our medical experts <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }}></i>
               </Button>
             </div>
           </div>

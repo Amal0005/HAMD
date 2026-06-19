@@ -72,7 +72,7 @@ const Navbar = () => {
         <div className="navbar-actions desktop-nav">
           <Link to="/contact" className="navbar-consult-btn">
             <span className="navbar-consult-btn-icon"><Phone size={18} /></span>
-            <span>Free Consultation</span>
+            <span>Speak with our medical experts</span>
           </Link>
         </div>
 
@@ -101,7 +101,7 @@ const Navbar = () => {
           <div className="mobile-nav-actions">
             <Link to="/contact" className="navbar-consult-btn mobile-full" onClick={closeMenu}>
               <span className="navbar-consult-btn-icon"><Phone size={18} /></span>
-              <span>Free Consultation</span>
+              <span>Speak with our medical experts</span>
             </Link>
           </div>
         </nav>

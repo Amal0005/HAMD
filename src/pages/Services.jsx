@@ -45,33 +45,29 @@ const Services = () => {
 
   return (
     <div className="page-container animate-fade-in">
-      <section className="page-header" style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)', padding: '3rem 0' }}>
+      <section className="page-header" style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)', padding: '5rem 0 4rem 0', textAlign: 'center' }}>
         <div className="container">
-          <div className="main-page-glass-strip">
-            <div className="main-page-glass-icon">
-              <Route size={32} />
-            </div>
-            <div className="main-page-glass-text">
-              <h1 style={{ fontSize: '2rem' }}>Your Treatment Journey</h1>
-              <p>From your first consultation to complete recovery — we guide you at every step with care, clarity, and confidence.</p>
-            </div>
-          </div>
+          <Route size={48} color="white" style={{ marginBottom: '1.5rem', opacity: 0.9 }} />
+          <h1 style={{ fontSize: '3rem', color: 'white', marginBottom: '1rem', textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>Your Treatment Journey</h1>
+          <p style={{ color: 'rgba(255, 255, 255, 0.95)', fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto', lineHeight: '1.6' }}>
+            From your first consultation to complete recovery — we guide you at every step with care, clarity, and confidence.
+          </p>
         </div>
       </section>
 
       <section className="section-padding bg-light">
         <div className="container">
           {stages.map((stage, sIdx) => (
-            <div key={sIdx} style={{ marginBottom: '4rem' }} data-aos="fade-up">
+            <div key={sIdx} style={{ marginBottom: '2rem' }} data-aos="fade-up">
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1rem' }}>
                 <span style={{ fontSize: '3rem', fontWeight: '800', color: 'var(--primary)', opacity: '0.2' }}>{stage.stageNumber}</span>
-                <h2 className="section-title" style={{ margin: 0, fontSize: '2rem' }}>Stage {sIdx + 1}: {stage.title}</h2>
+                <h2 className="section-title" style={{ margin: 0, fontSize: '2rem' }}>{stage.title}</h2>
               </div>
               <p className="large-text" style={{ marginBottom: '2.5rem', color: 'var(--text-muted)' }}>{stage.desc}</p>
               
               <div className="process-list" style={{ gap: '2rem' }}>
                 {stage.items.map((item, iIdx) => (
-                  <div key={iIdx} className="process-step glass-effect" style={{ borderLeft: '4px solid var(--primary)' }}>
+                  <div key={iIdx} className="process-step">
                     <div className="step-icon">
                       {item.icon}
                     </div>
@@ -84,8 +80,8 @@ const Services = () => {
               </div>
               
               {sIdx < stages.length - 1 && (
-                <div style={{ textAlign: 'center', margin: '3rem 0', color: 'var(--border-color)' }}>
-                  <div style={{ height: '50px', width: '2px', backgroundColor: 'var(--primary)', opacity: 0.3, margin: '0 auto' }}></div>
+                <div style={{ textAlign: 'center', margin: '1.5rem 0', color: 'var(--border-color)' }}>
+                  <div style={{ height: '40px', width: '2px', backgroundColor: 'var(--primary)', opacity: 0.3, margin: '0 auto' }}></div>
                 </div>
               )}
             </div>
