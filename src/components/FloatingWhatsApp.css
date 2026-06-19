@@ -10,15 +10,18 @@
 }
 
 .floating-wa-icon {
-  background-color: #25d366;
-  color: white;
+  background: rgba(2, 82, 138, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--primary);
   width: 60px;
   height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 32px rgba(2, 82, 138, 0.15);
+  border: 1px solid rgba(2, 82, 138, 0.2);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 

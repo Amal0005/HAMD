@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, ShieldCheck, Star, ChevronDown } from 'lucide-react';
+import { GiEyeTarget } from 'react-icons/gi';
 import './PageStyles.css';
 
 const Ophthalmology = () => {
@@ -18,7 +19,7 @@ const Ophthalmology = () => {
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
           <div className="split-hero-card" data-aos="fade-up">
-            <Eye size={48} color="#0ea5e9" style={{ marginBottom: '1rem' }} />
+            <GiEyeTarget size={48} color="#0ea5e9" style={{ marginBottom: '1rem' }} />
             <h1>Ophthalmology</h1>
             <p>Advanced eye care and vision correction</p>
           </div>
@@ -46,7 +47,7 @@ const Ophthalmology = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                           <div style={{ background: isOpen ? '#0ea5e9' : 'var(--primary-light)', padding: '0.5rem', borderRadius: '50%', color: isOpen ? 'white' : 'var(--primary)', transition: 'all 0.3s' }}>
-                            <Eye size={20} />
+                            <GiEyeTarget size={20} />
                           </div>
                           <span style={{ fontSize: '1.1rem', fontWeight: '600', color: isOpen ? '#0ea5e9' : 'var(--text-main)' }}>{proc.title}</span>
                         </div>

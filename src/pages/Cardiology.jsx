@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, ShieldCheck, Star } from 'lucide-react';
+import { GiHeartOrgan } from 'react-icons/gi';
 import './PageStyles.css';
 
 const Cardiology = () => {
@@ -9,7 +10,7 @@ const Cardiology = () => {
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #ef4444 0%, #991b1b 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
           <div className="split-hero-card" data-aos="fade-up">
-            <Heart size={48} color="#ef4444" style={{ marginBottom: '1rem' }} />
+            <GiHeartOrgan size={48} color="#ef4444" style={{ marginBottom: '1rem' }} />
             <h1>Cardiology</h1>
             <p>World-Class Cardiac Care & Heart Surgeries</p>
           </div>

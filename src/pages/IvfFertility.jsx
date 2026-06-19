@@ -1,5 +1,6 @@
 import React from 'react';
 import { UserPlus, ShieldCheck, Star } from 'lucide-react';
+import { GiBabyFace } from 'react-icons/gi';
 import './PageStyles.css';
 
 const IvfFertility = () => {
@@ -17,7 +18,7 @@ const IvfFertility = () => {
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #ec4899 0%, #be185d 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
           <div className="split-hero-card" data-aos="fade-up">
-            <UserPlus size={48} color="#ec4899" style={{ marginBottom: '1rem' }} />
+            <GiBabyFace size={48} color="#ec4899" style={{ marginBottom: '1rem' }} />
             <h1>IVF & Fertility</h1>
             <p>Comprehensive fertility treatments and specialized care</p>
           </div>

@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TreatmentCard from '../components/TreatmentCard';
-import { Heart, Activity, Brain, UserPlus, Eye, Scissors, Pill, FlaskConical } from 'lucide-react';
+import { GiHeartOrgan, GiJoint, GiRibbon, GiBabyFace, GiEyeTarget, GiScalpel, GiBrain, GiKidneys, GiStomach } from 'react-icons/gi';
 import './PageStyles.css';
 
 const Treatments = () => {
   const treatments = [
-    { icon: <Heart />, title: "Cardiology", desc: "Heart surgery, angioplasty, bypass surgery, and comprehensive cardiac care.", path: "/cardiology" },
-    { icon: <Activity />, title: "Orthopedics", desc: "Joint replacement, spine surgery, and advanced sports injury treatment.", path: "/orthopedic-care" },
-    { icon: <UserPlus />, title: "Oncology", desc: "Advanced cancer diagnosis, chemotherapy, radiation therapy, and surgical oncology.", path: "/oncology" },
-    { icon: <FlaskConical />, title: "IVF & Fertility", desc: "Comprehensive fertility treatments with high success rates.", path: "/ivf-fertility" },
-    { icon: <Eye />, title: "Ophthalmology", desc: "Cataract, LASIK, retina treatments, and advanced eye care.", path: "/ophthalmology" },
-    { icon: <Scissors />, title: "Cosmetic & Plastic Surgery", desc: "Rhinoplasty, liposuction, facelift, and aesthetic procedures.", path: "/cosmetic-surgery" },
-    { icon: <Brain />, title: "Neurology", desc: "Brain and nerve-related treatments including advanced neurosurgery.", path: "/neurology" },
-    { icon: <Activity />, title: "Urology", desc: "Kidney stones, prostate treatment, urinary disorders, and urological surgeries.", path: "/urology" },
-    { icon: <Pill />, title: "Gastroenterology", desc: "Liver care, digestive disorders, endoscopy, and gastrointestinal treatments.", path: "/gastroenterology" },
+    { icon: <GiHeartOrgan />, title: "Cardiology", desc: "Heart surgery, angioplasty, bypass surgery, and comprehensive cardiac care.", path: "/cardiology" },
+    { icon: <GiJoint />, title: "Orthopedics", desc: "Joint replacement, spine surgery, and advanced sports injury treatment.", path: "/orthopedic-care" },
+    { icon: <GiRibbon />, title: "Oncology", desc: "Advanced cancer diagnosis, chemotherapy, radiation therapy, and surgical oncology.", path: "/oncology" },
+    { icon: <GiBabyFace />, title: "IVF & Fertility", desc: "Comprehensive fertility treatments with high success rates.", path: "/ivf-fertility" },
+    { icon: <GiEyeTarget />, title: "Ophthalmology", desc: "Cataract, LASIK, retina treatments, and advanced eye care.", path: "/ophthalmology" },
+    { icon: <GiScalpel />, title: "Cosmetic & Plastic Surgery", desc: "Rhinoplasty, liposuction, facelift, and aesthetic procedures.", path: "/cosmetic-surgery" },
+    { icon: <GiBrain />, title: "Neurology", desc: "Brain and nerve-related treatments including advanced neurosurgery.", path: "/neurology" },
+    { icon: <GiKidneys />, title: "Urology", desc: "Kidney stones, prostate treatment, urinary disorders, and urological surgeries.", path: "/urology" },
+    { icon: <GiStomach />, title: "Gastroenterology", desc: "Liver care, digestive disorders, endoscopy, and gastrointestinal treatments.", path: "/gastroenterology" },
   ];
 
   return (
@@ -23,7 +23,7 @@ const Treatments = () => {
         <div className="container">
           <div className="main-page-glass-strip">
             <div className="main-page-glass-icon">
-              <Heart size={32} />
+              <GiHeartOrgan size={32} />
             </div>
             <div className="main-page-glass-text">
               <h1>Advanced Treatments</h1>

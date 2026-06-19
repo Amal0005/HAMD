@@ -1,5 +1,6 @@
 import React from 'react';
 import { Activity, ShieldCheck, Star, Clock, Phone } from 'lucide-react';
+import { GiKidneys } from 'react-icons/gi';
 import './PageStyles.css';
 
 const Urology = () => {
@@ -16,7 +17,7 @@ const Urology = () => {
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #f59e0b 0%, #b45309 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
           <div className="split-hero-card" data-aos="fade-up">
-            <Activity size={48} color="#f59e0b" style={{ marginBottom: '1rem' }} />
+            <GiKidneys size={48} color="#f59e0b" style={{ marginBottom: '1rem' }} />
             <h1>Urology</h1>
             <p>Advanced Urological Care</p>
           </div>

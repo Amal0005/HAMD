@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Brain, ShieldCheck, Star, ChevronDown } from 'lucide-react';
+import { GiBrain } from 'react-icons/gi';
 import './PageStyles.css';
 
 const Neurology = () => {
@@ -18,7 +19,7 @@ const Neurology = () => {
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #4c1d95 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
           <div className="split-hero-card" data-aos="fade-up">
-            <Brain size={48} color="#8b5cf6" style={{ marginBottom: '1rem' }} />
+            <GiBrain size={48} color="#8b5cf6" style={{ marginBottom: '1rem' }} />
             <h1>Neurology</h1>
             <p>Advanced brain and nerve-related treatments</p>
           </div>
@@ -46,7 +47,7 @@ const Neurology = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                           <div style={{ background: isOpen ? '#8b5cf6' : 'var(--primary-light)', padding: '0.5rem', borderRadius: '50%', color: isOpen ? 'white' : 'var(--primary)', transition: 'all 0.3s' }}>
-                            <Brain size={20} />
+                            <GiBrain size={20} />
                           </div>
                           <span style={{ fontSize: '1.1rem', fontWeight: '600', color: isOpen ? '#8b5cf6' : 'var(--text-main)' }}>{proc.title}</span>
                         </div>

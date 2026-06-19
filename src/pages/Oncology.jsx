@@ -1,5 +1,6 @@
 import React from 'react';
 import { Activity, ShieldCheck, Star, UserPlus } from 'lucide-react';
+import { GiRibbon } from 'react-icons/gi';
 import './PageStyles.css';
 
 const Oncology = () => {
@@ -9,7 +10,7 @@ const Oncology = () => {
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
           <div className="split-hero-card" data-aos="fade-up">
-            <UserPlus size={48} color="#1d4ed8" style={{ marginBottom: '1rem' }} />
+            <GiRibbon size={48} color="#1d4ed8" style={{ marginBottom: '1rem' }} />
             <h1>Oncology</h1>
             <p>Advanced Cancer Treatment & Surgical Oncology</p>
           </div>

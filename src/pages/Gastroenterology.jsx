@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pill, ShieldCheck, Star, Clock, MapPin, Phone } from 'lucide-react';
+import { GiStomach } from 'react-icons/gi';
 import './PageStyles.css';
 
 const Gastroenterology = () => {
@@ -16,7 +17,7 @@ const Gastroenterology = () => {
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #059669 0%, #064e3b 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
           <div className="split-hero-card" data-aos="fade-up">
-            <Pill size={48} color="#059669" style={{ marginBottom: '1rem' }} />
+            <GiStomach size={48} color="#059669" style={{ marginBottom: '1rem' }} />
             <h1>Gastroenterology</h1>
             <p>Expert Digestive & Liver Care</p>
           </div>

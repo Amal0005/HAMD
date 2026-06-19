@@ -1,5 +1,6 @@
 import React from 'react';
 import { Scissors, ShieldCheck, Star } from 'lucide-react';
+import { GiScalpel } from 'react-icons/gi';
 import './PageStyles.css';
 
 const CosmeticSurgery = () => {
@@ -16,7 +17,7 @@ const CosmeticSurgery = () => {
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #f43f5e 0%, #c1121f 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
           <div className="split-hero-card" data-aos="fade-up">
-            <Scissors size={48} color="#f43f5e" style={{ marginBottom: '1rem' }} />
+            <GiScalpel size={48} color="#f43f5e" style={{ marginBottom: '1rem' }} />
             <h1>Cosmetic Surgery</h1>
             <p>Enhance Your Confidence with Safe Procedures</p>
           </div>
@@ -47,7 +48,7 @@ const CosmeticSurgery = () => {
                   
                   {/* Icon Card Side */}
                   <div className="glass-effect" data-aos="fade-up" style={{ width: '120px', height: '120px', flexShrink: 0, borderRadius: 'var(--radius-xl)', display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(135deg, var(--surface-color) 0%, #ffe4e6 100%)', border: '1px solid #fda4af', boxShadow: '0 10px 25px rgba(244,63,94,0.15)' }}>
-                    <Scissors size={40} color="#f43f5e" />
+                    <GiScalpel size={40} color="#f43f5e" />
                   </div>
 
                 </div>

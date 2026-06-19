@@ -1,5 +1,6 @@
 import React from 'react';
 import { Activity, ShieldCheck, Star } from 'lucide-react';
+import { GiJoint } from 'react-icons/gi';
 import './PageStyles.css';
 
 const OrthopedicCare = () => {
@@ -16,7 +17,7 @@ const OrthopedicCare = () => {
         <div className="split-hero-bg" style={{ background: 'linear-gradient(135deg, #10b981 0%, #047857 100%)' }}></div>
         <div className="container" style={{ position: 'relative' }}>
           <div className="split-hero-card" data-aos="fade-up">
-            <Activity size={48} color="#10b981" style={{ marginBottom: '1rem' }} />
+            <GiJoint size={48} color="#10b981" style={{ marginBottom: '1rem' }} />
             <h1>Orthopedic Care</h1>
             <p>Advanced Joint Replacement & Spine Surgery</p>
           </div>
@@ -39,7 +40,7 @@ const OrthopedicCare = () => {
                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-10px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(2,132,199,0.15)' }}
                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-md)' }}>
                 <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)', color: '#0284c7', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 auto 1.5rem auto' }}>
-                  <Activity size={36} />
+                  <GiJoint size={36} />
                 </div>
                 <h3 style={{ color: '#0284c7', marginBottom: '1rem' }}>{treatment.title}</h3>
                 <p style={{ color: 'var(--text-main)', margin: 0, lineHeight: 1.6 }}>{treatment.desc}</p>
