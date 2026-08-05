@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Home as HomeIcon, Info, Briefcase, HeartPulse, Mail } from 'lucide-react';
-import Button from './Button';
+import { Menu, X } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -12,6 +12,8 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
+
+  const whatsappUrl = import.meta.env.VITE_WHATSAPP_URL || 'https://wa.me/919000000000';
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -44,9 +46,13 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/', icon: <HomeIcon size={16} /> },
-    { name: 'About', path: '/about', icon: <Info size={16} /> },
-    { name: 'Contact', path: '/contact', icon: <Mail size={16} /> },
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Treatments', path: '/treatments' },
+    { name: 'Our Services', path: '/services' },
+    { name: 'Why Kerala', path: '/wellness-ayurveda' },
+    { name: 'Patient Guide', path: '/services#patient-guide' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   return (
@@ -70,10 +76,15 @@ const Navbar = () => {
         </nav>
 
         <div className="navbar-actions desktop-nav">
-          <Link to="/contact" className="navbar-consult-btn">
-            <span className="navbar-consult-btn-icon"><Phone size={18} /></span>
-            <span>Speak with our medical experts</span>
-          </Link>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar-whatsapp-btn"
+          >
+            <FaWhatsapp size={20} className="whatsapp-icon" />
+            <span>WhatsApp Us</span>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -93,16 +104,20 @@ const Navbar = () => {
               className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
               onClick={closeMenu}
             >
-              <span className="mobile-nav-icon">{link.icon}</span>
               {link.name}
-              <i className="fa-solid fa-chevron-right mobile-nav-arrow"></i>
             </Link>
           ))}
           <div className="mobile-nav-actions">
-            <Link to="/contact" className="navbar-consult-btn mobile-full" onClick={closeMenu}>
-              <span className="navbar-consult-btn-icon"><Phone size={18} /></span>
-              <span>Speak with our medical experts</span>
-            </Link>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="navbar-whatsapp-btn mobile-full"
+              onClick={closeMenu}
+            >
+              <FaWhatsapp size={20} className="whatsapp-icon" />
+              <span>WhatsApp Us</span>
+            </a>
           </div>
         </nav>
       </div>
