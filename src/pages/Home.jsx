@@ -79,11 +79,17 @@ const UaeFlag = () => (
 );
 
 const SaudiFlag = () => (
-  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon">
-    <circle cx="16" cy="16" r="15" fill="#15803D" stroke="#E5E7EB" strokeWidth="1"/>
+  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon" title="Saudi Arabia">
+    <circle cx="16" cy="16" r="15" fill="#047857" stroke="#E5E7EB" strokeWidth="1"/>
     <g clipPath="url(#saudi-clip)">
-      <rect width="32" height="32" fill="#15803D"/>
-      <path d="M8 16H24M12 19L20 19" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round"/>
+      <rect width="32" height="32" fill="#047857"/>
+      {/* Arabic Shahada Calligraphy Script */}
+      <g stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none">
+        <path d="M7.5 10.5V14.5M9.5 9V15M11.5 10V14.5M13.5 10.5V15M15.5 9V14.5M17.5 10V15M19.5 9V14.5M21.5 10V15M23.5 9.5V14" />
+        <path d="M7 14.5C9.5 16.5 13.5 14 16.5 16C19.5 14 22 16.5 24.5 14.5" strokeWidth="1.5" />
+      </g>
+      {/* Horizontal Sword pointing left */}
+      <path d="M24 19.5H9.5M9.5 19.5L11.5 18M9.5 19.5L11.5 21M22 18V21" stroke="#FFFFFF" strokeWidth="1.3" strokeLinecap="round"/>
     </g>
     <defs>
       <clipPath id="saudi-clip">
@@ -119,6 +125,42 @@ const KuwaitFlag = () => (
     </g>
     <defs>
       <clipPath id="kuwait-clip">
+        <circle cx="16" cy="16" r="15"/>
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+const MaldivesFlag = () => (
+  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon" title="Maldives">
+    <circle cx="16" cy="16" r="15" fill="#DC2626" stroke="#E5E7EB" strokeWidth="1"/>
+    <g clipPath="url(#maldives-clip)">
+      <rect width="32" height="32" fill="#DC2626"/>
+      <rect x="7" y="7" width="18" height="18" fill="#16A34A" rx="2"/>
+      <path d="M18.5 12C16.8 13.2 16.8 18.8 18.5 20C15 20 13.5 13 18.5 12Z" fill="#FFFFFF"/>
+    </g>
+    <defs>
+      <clipPath id="maldives-clip">
+        <circle cx="16" cy="16" r="15"/>
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+const KenyaFlag = () => (
+  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon" title="Kenya">
+    <circle cx="16" cy="16" r="15" fill="#E5E7EB" stroke="#E5E7EB" strokeWidth="1"/>
+    <g clipPath="url(#kenya-clip)">
+      <rect width="32" height="9.5" fill="#1F2937"/>
+      <rect y="9.5" width="32" height="1.5" fill="#FFFFFF"/>
+      <rect y="11" width="32" height="10" fill="#B91C1C"/>
+      <rect y="21" width="32" height="1.5" fill="#FFFFFF"/>
+      <rect y="22.5" width="32" height="9.5" fill="#15803D"/>
+      <ellipse cx="16" cy="16" rx="4" ry="7" fill="#B91C1C" stroke="#FFFFFF" strokeWidth="1"/>
+      <line x1="16" y1="8" x2="16" y2="24" stroke="#FFFFFF" strokeWidth="1.2"/>
+    </g>
+    <defs>
+      <clipPath id="kenya-clip">
         <circle cx="16" cy="16" r="15"/>
       </clipPath>
     </defs>
@@ -351,45 +393,57 @@ const Home = () => {
 
   const whyChooseItems = [
     {
+      num: '01',
       icon: <Headphones size={28} className="why-icon" />,
       title: '24/7 International Patient Support',
       desc: 'Round-the-clock emergency medical coordination and instant response for international patients.',
       badge: '24/7 Active Support',
+      highlights: ['Emergency Response', 'Direct WhatsApp Line', '24/7 On-Call Doctor'],
       theme: 'why-theme-blue'
     },
     {
+      num: '02',
       icon: <ShieldCheck size={28} className="why-icon" />,
       title: 'Trusted NABH Hospital Network',
       desc: 'Direct partnership with top JCI & NABH-accredited multi-specialty hospitals across Kerala.',
       badge: 'NABH Accredited',
+      highlights: ['50+ Partner Hospitals', 'JCI & NABH Certified', 'Top Specialist Surgeons'],
       theme: 'why-theme-emerald'
     },
     {
+      num: '03',
       icon: <UserCheck size={28} className="why-icon" />,
       title: 'Dedicated Patient Coordinator',
       desc: 'Your personal bilingual coordinator handles appointments, hospital admission, and daily ground support.',
       badge: 'Single Point of Contact',
+      highlights: ['1-on-1 Personal Guide', 'Arabic & English Native', 'Hospital Admission Care'],
       theme: 'why-theme-indigo'
     },
     {
+      num: '04',
       icon: <Receipt size={28} className="why-icon" />,
       title: 'Transparent Upfront Pricing',
       desc: 'Detailed itemized cost estimates provided before you travel with zero surprise charges.',
       badge: 'No Hidden Fees',
+      highlights: ['Itemized Cost Quote', 'Zero Hidden Charges', 'Free Cost Evaluation'],
       theme: 'why-theme-amber'
     },
     {
+      num: '05',
       icon: <Globe size={28} className="why-icon" />,
       title: 'Native Multilingual Assistance',
       desc: 'Fluent Arabic and English interpreters accompany you to every doctor consultation and hospital visit.',
       badge: 'Arabic & English',
+      highlights: ['In-Person Interpreter', 'Doctor Consultation Help', 'Report Translation'],
       theme: 'why-theme-rose'
     },
     {
+      num: '06',
       icon: <Heart size={28} className="why-icon" />,
       title: 'Care Beyond Treatment',
       desc: 'Continued medical follow-ups with your operating surgeons even after your safe return home.',
       badge: 'Post-Recovery Care',
+      highlights: ['Post-Return Follow-ups', 'Tele-health Consults', 'Medication Guidance'],
       theme: 'why-theme-pink'
     },
   ];
@@ -451,13 +505,15 @@ const Home = () => {
             <div className="hero-serving-flags">
               <div className="flags-row">
                 <OmanFlag />
-                <UaeFlag />
                 <SaudiFlag />
+                <UaeFlag />
                 <QatarFlag />
                 <KuwaitFlag />
+                <MaldivesFlag />
+                <KenyaFlag />
               </div>
               <span className="serving-text">
-                Proudly serving patients from Oman, UAE, Saudi Arabia, Qatar, Kuwait and across the world.
+                Proudly serving patients from Oman, Saudi Arabia, UAE, Qatar, Kuwait, Maldives, Kenya and across the world.
               </span>
             </div>
           </div>
@@ -474,6 +530,10 @@ const Home = () => {
                 <div className="carousel-badge-title">
                   <Sparkles size={16} className="sparkle-icon" />
                   <span>Patient Care & Services</span>
+                </div>
+                <div className="swipe-hint-pill">
+                  <span className="pulse-dot"></span>
+                  <span>Drag or Swipe</span>
                 </div>
               </div>
 
@@ -643,6 +703,8 @@ const Home = () => {
                 data-aos="fade-up"
                 data-aos-delay={idx * 80}
               >
+                <div className="advantage-watermark">{item.num}</div>
+                
                 <div className="advantage-card-top">
                   <div className="advantage-icon-box">
                     <div className="advantage-glow-ring"></div>
@@ -653,6 +715,16 @@ const Home = () => {
 
                 <h3 className="advantage-card-title">{item.title}</h3>
                 <p className="advantage-card-desc">{item.desc}</p>
+
+                <div className="advantage-highlights-list">
+                  {item.highlights.map((high, hIdx) => (
+                    <span key={hIdx} className="advantage-highlight-pill">
+                      <CheckCircle2 size={13} className="high-check-icon" />
+                      <span>{high}</span>
+                    </span>
+                  ))}
+                </div>
+
                 <div className="advantage-bottom-line"></div>
               </div>
             ))}
