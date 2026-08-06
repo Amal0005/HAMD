@@ -25,7 +25,8 @@ import {
   Activity,
   CheckCircle2,
   CalendarCheck,
-  Sparkles
+  Sparkles,
+  Award
 } from 'lucide-react';
 import {
   GiHeartOrgan,
@@ -130,27 +131,35 @@ const Home = () => {
   
   const [activeStep, setActiveStep] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeftPos = useRef(0);
+  const animFrameId = useRef(null);
+  const resumeTimerRef = useRef(null);
+
+  // Triggered whenever user touches, scrolls, or drags the carousel
+  const handleUserInteraction = () => {
+    setIsInteracting(true);
+    if (resumeTimerRef.current) {
+      clearTimeout(resumeTimerRef.current);
+    }
+    resumeTimerRef.current = setTimeout(() => {
+      setIsInteracting(false);
+    }, 2200); // Smoothly resumes auto-scroll 2.2s after user finishes scrolling
+  };
 
   const scrollLeft = () => {
+    handleUserInteraction();
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: -280, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
+    handleUserInteraction();
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: 280, behavior: 'smooth' });
-    }
-  };
-
-  const scrollToIndex = (index) => {
-    if (carouselRef.current) {
-      const cardWidth = 140; // Approx item width + gap
-      carouselRef.current.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
     }
   };
 
@@ -168,33 +177,46 @@ const Home = () => {
     setScrollProgress(progress);
   };
 
+  // Continuous Ultra-Smooth Auto-Scroll Engine (60 FPS)
   React.useEffect(() => {
-    const track = carouselRef.current;
-    if (!track) return;
-    track.addEventListener('scroll', updateScrollProgress);
-    updateScrollProgress();
-    return () => track.removeEventListener('scroll', updateScrollProgress);
-  }, []);
+    let lastTime = performance.now();
+    const scrollSpeed = 0.65; // Smooth gentle pixel speed
 
-  // Auto-slide feature with pause on hover
-  React.useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      if (carouselRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-        if (scrollLeft + clientWidth >= scrollWidth - 15) {
-          carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          carouselRef.current.scrollBy({ left: 220, behavior: 'smooth' });
+    const step = (time) => {
+      if (!isInteracting && carouselRef.current) {
+        const delta = Math.min((time - lastTime) / 16.6, 2);
+        const container = carouselRef.current;
+        const maxScroll = container.scrollWidth - container.clientWidth;
+
+        if (maxScroll > 0) {
+          if (container.scrollLeft >= maxScroll - 1) {
+            container.scrollLeft = 0; // Loop back smoothly to start
+          } else {
+            container.scrollLeft += scrollSpeed * delta;
+          }
+          updateScrollProgress();
         }
       }
-    }, 3500);
-    return () => clearInterval(interval);
-  }, [isPaused]);
+      lastTime = time;
+      animFrameId.current = requestAnimationFrame(step);
+    };
 
-  // Touch and Mouse Drag handlers
+    animFrameId.current = requestAnimationFrame(step);
+
+    return () => {
+      if (animFrameId.current) {
+        cancelAnimationFrame(animFrameId.current);
+      }
+      if (resumeTimerRef.current) {
+        clearTimeout(resumeTimerRef.current);
+      }
+    };
+  }, [isInteracting]);
+
+  // Touch and Mouse Drag handlers with auto-resume support
   const handleMouseDown = (e) => {
     isDragging.current = true;
+    handleUserInteraction();
     startX.current = e.pageX - carouselRef.current.offsetLeft;
     scrollLeftPos.current = carouselRef.current.scrollLeft;
   };
@@ -205,14 +227,33 @@ const Home = () => {
 
   const handleMouseUp = () => {
     isDragging.current = false;
+    handleUserInteraction();
   };
 
   const handleMouseMove = (e) => {
     if (!isDragging.current) return;
     e.preventDefault();
+    handleUserInteraction();
     const x = e.pageX - carouselRef.current.offsetLeft;
     const walk = (x - startX.current) * 1.5;
     carouselRef.current.scrollLeft = scrollLeftPos.current - walk;
+  };
+
+  const handleTouchStart = () => {
+    handleUserInteraction();
+  };
+
+  const handleTouchMove = () => {
+    handleUserInteraction();
+  };
+
+  const handleTouchEnd = () => {
+    handleUserInteraction();
+  };
+
+  const handleScroll = () => {
+    updateScrollProgress();
+    handleUserInteraction();
   };
 
   const serviceItems = [
@@ -308,74 +349,47 @@ const Home = () => {
     }
   ];
 
-  const servicesJourney = [
-    {
-      step: "01",
-      icon: <Stethoscope size={32} />,
-      title: "Pre-Travel & Medical Consultation",
-      subtitle: "Before You Leave Home",
-      desc: "We analyze your medical records with top Kerala doctors, arrange second opinions, and give you transparent cost estimates before you travel.",
-      features: ["Free Specialist Opinion", "No-Hidden-Cost Estimate", "Video Consultation Options"],
-      link: "/services",
-      color: "#0284c7"
-    },
-    {
-      step: "02",
-      icon: <Plane size={32} />,
-      title: "Travel & Concierge Services",
-      subtitle: "Arrival & Stay Assistance",
-      desc: "We issue medical visa support letters, assist with flight bookings, provide private airport transfers, and arrange comfortable hotel stays.",
-      features: ["Medical Visa Invitation", "Airport Pickup & Transfers", "Hotel / Apartment Stay"],
-      link: "/services",
-      color: "#0d9488"
-    },
-    {
-      step: "03",
-      icon: <Activity size={32} />,
-      title: "Hospital & Recovery Support",
-      subtitle: "Treatment & Post-Care",
-      desc: "Enjoy priority appointment booking, a 24/7 bilingual patient coordinator by your side, and structured post-treatment follow-up.",
-      features: ["Priority Hospital Booking", "Arabic & English Interpreter", "Post-Return Follow-ups"],
-      link: "/services",
-      color: "#7c3aed"
-    }
-  ];
-
   const whyChooseItems = [
     {
-      icon: <Headphones size={30} className="why-icon" />,
+      icon: <Headphones size={28} className="why-icon" />,
       title: '24/7 International Patient Support',
-      desc: 'We are with you anytime, anywhere.',
+      desc: 'Round-the-clock emergency medical coordination and instant response for international patients.',
+      badge: '24/7 Active Support',
       theme: 'why-theme-blue'
     },
     {
-      icon: <ShieldCheck size={30} className="why-icon" />,
-      title: 'Trusted Hospital Network',
-      desc: 'Partnership with top hospitals in Kerala.',
+      icon: <ShieldCheck size={28} className="why-icon" />,
+      title: 'Trusted NABH Hospital Network',
+      desc: 'Direct partnership with top JCI & NABH-accredited multi-specialty hospitals across Kerala.',
+      badge: 'NABH Accredited',
       theme: 'why-theme-emerald'
     },
     {
-      icon: <UserCheck size={30} className="why-icon" />,
+      icon: <UserCheck size={28} className="why-icon" />,
       title: 'Dedicated Patient Coordinator',
-      desc: 'A single point of contact throughout your journey.',
+      desc: 'Your personal bilingual coordinator handles appointments, hospital admission, and daily ground support.',
+      badge: 'Single Point of Contact',
       theme: 'why-theme-indigo'
     },
     {
-      icon: <Receipt size={30} className="why-icon" />,
-      title: 'Transparent Pricing',
-      desc: 'Clear and upfront pricing. No hidden fees.',
+      icon: <Receipt size={28} className="why-icon" />,
+      title: 'Transparent Upfront Pricing',
+      desc: 'Detailed itemized cost estimates provided before you travel with zero surprise charges.',
+      badge: 'No Hidden Fees',
       theme: 'why-theme-amber'
     },
     {
-      icon: <Globe size={30} className="why-icon" />,
-      title: 'Multilingual Assistance',
-      desc: 'Support in Arabic, English and more.',
+      icon: <Globe size={28} className="why-icon" />,
+      title: 'Native Multilingual Assistance',
+      desc: 'Fluent Arabic and English interpreters accompany you to every doctor consultation and hospital visit.',
+      badge: 'Arabic & English',
       theme: 'why-theme-rose'
     },
     {
-      icon: <Heart size={30} className="why-icon" />,
+      icon: <Heart size={28} className="why-icon" />,
       title: 'Care Beyond Treatment',
-      desc: 'We care for you, even after you go home.',
+      desc: 'Continued medical follow-ups with your operating surgeons even after your safe return home.',
+      badge: 'Post-Recovery Care',
       theme: 'why-theme-pink'
     },
   ];
@@ -485,14 +499,15 @@ const Home = () => {
             <div
               className="extraordinary-slider-track"
               ref={carouselRef}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => {
-                setIsPaused(false);
-                handleMouseLeave();
-              }}
+              onMouseEnter={() => setIsInteracting(true)}
+              onMouseLeave={() => handleUserInteraction()}
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
               onMouseMove={handleMouseMove}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onScroll={handleScroll}
             >
               {serviceItems.map((item, idx) => (
                 <Link
@@ -565,7 +580,7 @@ const Home = () => {
               <div className="gateway-card-action">
                 <Link to="/treatments" className="btn-gateway btn-gateway-treatments">
                   <span>Go to Treatment Details Page</span>
-                  <ArrowRight size={18} />
+                  <ArrowRight size={20} className="btn-arrow-movable" />
                 </Link>
               </div>
             </div>
@@ -598,7 +613,7 @@ const Home = () => {
               <div className="gateway-card-action">
                 <Link to="/services" className="btn-gateway btn-gateway-services">
                   <span>Go to Services Page</span>
-                  <ArrowRight size={18} />
+                  <ArrowRight size={20} className="btn-arrow-movable" />
                 </Link>
               </div>
             </div>
@@ -606,20 +621,39 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose HAMD Section */}
-      <section className="why-choose-section">
+      {/* Why Choose HAMD Section - The HAMD Advantage */}
+      <section className="why-choose-section" id="why-hamd">
         <div className="container">
           <div className="section-header text-center">
-            <h2 className="why-title">Why Choose HAMD?</h2>
+            <span className="section-badge">
+              <Award size={16} /> The HAMD Advantage
+            </span>
+            <h2 className="section-main-title">Why Patients Choose HAMD Med Connect</h2>
+            <p className="section-sub-desc">
+              We combine world-class medical expertise in Kerala with personalized healthcare concierge, transparent pricing, and 24/7 patient support.
+            </p>
             <div className="title-underline"></div>
           </div>
 
-          <div className="why-grid">
+          <div className="why-advantage-grid">
             {whyChooseItems.map((item, idx) => (
-              <div key={idx} className={`why-card ${item.theme}`}>
-                <div className="why-icon-wrapper">{item.icon}</div>
-                <h3 className="why-card-title">{item.title}</h3>
-                <p className="why-card-desc">{item.desc}</p>
+              <div
+                key={idx}
+                className={`advantage-card ${item.theme}`}
+                data-aos="fade-up"
+                data-aos-delay={idx * 80}
+              >
+                <div className="advantage-card-top">
+                  <div className="advantage-icon-box">
+                    <div className="advantage-glow-ring"></div>
+                    {item.icon}
+                  </div>
+                  <span className="advantage-badge-chip">{item.badge}</span>
+                </div>
+
+                <h3 className="advantage-card-title">{item.title}</h3>
+                <p className="advantage-card-desc">{item.desc}</p>
+                <div className="advantage-bottom-line"></div>
               </div>
             ))}
           </div>

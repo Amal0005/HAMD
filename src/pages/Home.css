@@ -702,42 +702,221 @@
   margin-top: auto;
 }
 
+/* Movable Floating & Shimmer Animations for Gateway Buttons */
 .btn-gateway {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem 1.6rem;
+  padding: 1.05rem 1.75rem;
   border-radius: 100px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.02rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatButton 3.2s ease-in-out infinite;
+}
+
+/* Light Sheen Sweep Overlay */
+.btn-gateway::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: sweepLight 3.5s infinite ease-in-out;
 }
 
 .btn-gateway-treatments {
-  background: #073567;
+  background: linear-gradient(135deg, #073567 0%, #0369a1 100%);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(7, 53, 103, 0.25);
+  box-shadow: 0 8px 22px rgba(7, 53, 103, 0.3);
+  animation-delay: 0s;
 }
 
 .btn-gateway-treatments:hover {
-  background: #042449;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(7, 53, 103, 0.35);
+  background: linear-gradient(135deg, #042449 0%, #0284c7 100%);
+  color: #ffffff;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(7, 53, 103, 0.45);
 }
 
 .btn-gateway-services {
-  background: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
   color: #0f766e;
   border: 2px solid #0f766e;
+  box-shadow: 0 8px 22px rgba(15, 118, 110, 0.15);
+  animation-delay: 1.6s;
 }
 
 .btn-gateway-services:hover {
-  background: #0f766e;
+  background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
   color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.25);
+  border-color: #0f766e;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(15, 118, 110, 0.35);
+}
+
+/* Movable Arrow Indicator */
+.btn-arrow-movable {
+  transition: transform 0.3s ease;
+  animation: moveArrow 1.8s ease-in-out infinite;
+}
+
+.btn-gateway:hover .btn-arrow-movable {
+  animation: none;
+  transform: translateX(8px) scale(1.2);
+}
+
+/* Keyframe Animations */
+@keyframes floatButton {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes sweepLight {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 200%;
+  }
+}
+
+@keyframes moveArrow {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+/* ==========================================================================
+   Why Choose HAMD Section - The HAMD Advantage Cards
+   ========================================================================== */
+.why-choose-section {
+  padding: 4.5rem 0;
+  background-color: #ffffff;
+}
+
+.why-advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+
+.advantage-card {
+  position: relative;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.advantage-card:hover {
+  transform: translateY(-8px);
+  background: #ffffff;
+  box-shadow: 0 16px 36px rgba(7, 53, 103, 0.1);
+  border-color: #3b82f6;
+}
+
+.advantage-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.advantage-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.advantage-card:hover .advantage-icon-box {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.advantage-badge-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+}
+
+.why-theme-blue .advantage-icon-box { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+.why-theme-blue .advantage-badge-chip { background: #eff6ff; color: #1d4ed8; }
+
+.why-theme-emerald .advantage-icon-box { background: linear-gradient(135deg, #047857, #10b981); }
+.why-theme-emerald .advantage-badge-chip { background: #f0fdf4; color: #047857; }
+
+.why-theme-indigo .advantage-icon-box { background: linear-gradient(135deg, #4338ca, #6366f1); }
+.why-theme-indigo .advantage-badge-chip { background: #eef2ff; color: #4338ca; }
+
+.why-theme-amber .advantage-icon-box { background: linear-gradient(135deg, #b45309, #f59e0b); }
+.why-theme-amber .advantage-badge-chip { background: #fffbeb; color: #b45309; }
+
+.why-theme-rose .advantage-icon-box { background: linear-gradient(135deg, #be123c, #fb7185); }
+.why-theme-rose .advantage-badge-chip { background: #fff1f2; color: #be123c; }
+
+.why-theme-pink .advantage-icon-box { background: linear-gradient(135deg, #be185d, #ec4899); }
+.why-theme-pink .advantage-badge-chip { background: #fdf2f8; color: #be185d; }
+
+.advantage-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f294a;
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+
+.advantage-card-desc {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.advantage-bottom-line {
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #073567, #0284c7);
+  border-radius: 100px;
+  margin-top: 1.25rem;
+  transition: width 0.35s ease;
+}
+
+.advantage-card:hover .advantage-bottom-line {
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -836,6 +1015,11 @@
 }
 
 @media (max-width: 991px) {
+  .why-advantage-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
   .hero-layout {
     display: flex;
     flex-direction: column;
@@ -863,6 +1047,30 @@
     align-items: center;
   }
 
+  .hero-buttons {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-serving-flags {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .flags-row {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .serving-text {
+    text-align: center;
+    margin: 0 auto;
+  }
+
   .hero-img {
     -webkit-mask-image: none;
     mask-image: none;
@@ -884,6 +1092,11 @@
 }
 
 @media (max-width: 640px) {
+  .why-advantage-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
   .why-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
