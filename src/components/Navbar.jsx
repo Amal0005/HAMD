@@ -1,6 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import {
+  Menu,
+  X,
+  Home as HomeIcon,
+  Info,
+  Stethoscope,
+  HeartHandshake,
+  Sun,
+  FileText,
+  PhoneCall,
+  ChevronRight
+} from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import './Navbar.css';
 
@@ -46,13 +57,13 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Treatments', path: '/treatments' },
-    { name: 'Our Services', path: '/services' },
-    { name: 'Why Kerala', path: '/wellness-ayurveda' },
-    { name: 'Patient Guide', path: '/services#patient-guide' },
-    { name: 'Contact Us', path: '/contact' },
+    { name: 'Home', path: '/', icon: <HomeIcon size={18} /> },
+    { name: 'About Us', path: '/about', icon: <Info size={18} /> },
+    { name: 'Treatments', path: '/treatments', icon: <Stethoscope size={18} /> },
+    { name: 'Our Services', path: '/services', icon: <HeartHandshake size={18} /> },
+    { name: 'Why Kerala', path: '/wellness-ayurveda', icon: <Sun size={18} /> },
+    { name: 'Patient Guide', path: '/services#patient-guide', icon: <FileText size={18} /> },
+    { name: 'Contact Us', path: '/contact', icon: <PhoneCall size={18} /> },
   ];
 
   return (
@@ -89,8 +100,8 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button className={`mobile-toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
-          <Menu size={28} className="icon-menu" />
-          <X size={28} className="icon-close" />
+          <Menu size={24} className="icon-menu" />
+          <X size={24} className="icon-close" />
         </button>
       </div>
 
@@ -104,7 +115,9 @@ const Navbar = () => {
               className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
               onClick={closeMenu}
             >
-              {link.name}
+              <span className="mobile-link-icon-box">{link.icon}</span>
+              <span className="mobile-link-text">{link.name}</span>
+              <ChevronRight size={16} className="mobile-link-arrow" />
             </Link>
           ))}
           <div className="mobile-nav-actions">

@@ -16,11 +16,11 @@ const Footer = () => {
             <p className="footer-desc">
               Your Trusted Partner in Global Healthcare. We simplify the entire process — from diagnosis to recovery — with complete transparency and personalized care.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
-              <a href="https://www.facebook.com/share/1C48auHXo2/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontSize: '1.5rem' }}>
+            <div className="footer-socials">
+              <a href="https://www.facebook.com/share/1C48auHXo2/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <i className="fa-brands fa-facebook"></i>
               </a>
-              <a href="https://www.instagram.com/hamd_medconnect?igsh=MWgxdTB5bjR6ZWR3YQ==" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontSize: '1.5rem' }}>
+              <a href="https://www.instagram.com/hamd_medconnect?igsh=MWgxdTB5bjR6ZWR3YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <i className="fa-brands fa-instagram"></i>
               </a>
             </div>

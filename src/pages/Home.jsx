@@ -26,7 +26,9 @@ import {
   CheckCircle2,
   CalendarCheck,
   Sparkles,
-  Award
+  Award,
+  PhoneCall,
+  Clock
 } from 'lucide-react';
 import {
   GiHeartOrgan,
@@ -174,6 +176,8 @@ const Home = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isInteracting, setIsInteracting] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeftPos = useRef(0);
@@ -209,7 +213,11 @@ const Home = () => {
     if (!carouselRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
     const maxScroll = scrollWidth - clientWidth;
-    if (maxScroll <= 0) return;
+    if (maxScroll <= 0) {
+      setCanScrollLeft(false);
+      setCanScrollRight(false);
+      return;
+    }
     const progress = Math.min(100, Math.max(0, (scrollLeft / maxScroll) * 100));
     const step = Math.min(
       serviceItems.length - 1,
@@ -217,7 +225,43 @@ const Home = () => {
     );
     setActiveStep(step);
     setScrollProgress(progress);
+    setCanScrollLeft(scrollLeft > 5);
+    setCanScrollRight(scrollLeft < maxScroll - 5);
   };
+
+  const whyCarouselRef = useRef(null);
+  const [canScrollWhyLeft, setCanScrollWhyLeft] = useState(false);
+  const [canScrollWhyRight, setCanScrollWhyRight] = useState(true);
+
+  const scrollWhyLeft = () => {
+    if (whyCarouselRef.current) {
+      whyCarouselRef.current.scrollBy({ left: -260, behavior: 'smooth' });
+    }
+  };
+
+  const scrollWhyRight = () => {
+    if (whyCarouselRef.current) {
+      whyCarouselRef.current.scrollBy({ left: 260, behavior: 'smooth' });
+    }
+  };
+
+  const updateWhyScrollProgress = () => {
+    if (!whyCarouselRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = whyCarouselRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll <= 0) {
+      setCanScrollWhyLeft(false);
+      setCanScrollWhyRight(false);
+      return;
+    }
+    setCanScrollWhyLeft(scrollLeft > 5);
+    setCanScrollWhyRight(scrollLeft < maxScroll - 5);
+  };
+
+  React.useEffect(() => {
+    updateScrollProgress();
+    updateWhyScrollProgress();
+  }, []);
 
   // Continuous Ultra-Smooth Auto-Scroll Engine (60 FPS)
   React.useEffect(() => {
@@ -299,18 +343,18 @@ const Home = () => {
   };
 
   const serviceItems = [
-    { icon: <UserCheck size={26} />, label: 'Medical Coordination', theme: 'theme-blue' },
-    { icon: <Building2 size={26} />, label: 'Hospital Appointments', theme: 'theme-teal' },
-    { icon: <FileText size={26} />, label: 'Second Opinion', theme: 'theme-indigo' },
-    { icon: <CircleDollarSign size={26} />, label: 'Transparent Cost Estimate', theme: 'theme-amber' },
-    { icon: <FileBadge size={26} />, label: 'Medical Visa', theme: 'theme-cyan' },
-    { icon: <Plane size={26} />, label: 'Flight Assistance', theme: 'theme-sky' },
-    { icon: <Car size={26} />, label: 'Airport Pickup', theme: 'theme-rose' },
-    { icon: <Hotel size={26} />, label: 'Hotel Accommodation', theme: 'theme-purple' },
-    { icon: <Headphones size={26} />, label: 'Interpreter Support', theme: 'theme-orange' },
-    { icon: <HeartHandshake size={26} />, label: 'Treatment Support', theme: 'theme-pink' },
-    { icon: <Sun size={26} />, label: 'Recovery & Wellness', theme: 'theme-emerald' },
-    { icon: <MessageSquareHeart size={26} />, label: 'Post-Treatment Follow-up', theme: 'theme-violet' },
+    { icon: <UserCheck size={28} />, label: 'Medical Coordination', theme: 'theme-blue' },
+    { icon: <Building2 size={28} />, label: 'Hospital Appointments', theme: 'theme-teal' },
+    { icon: <FileText size={28} />, label: 'Second Opinion', theme: 'theme-indigo' },
+    { icon: <CircleDollarSign size={28} />, label: 'Transparent Cost Estimate', theme: 'theme-amber' },
+    { icon: <FileBadge size={28} />, label: 'Medical Visa', theme: 'theme-cyan' },
+    { icon: <Plane size={28} />, label: 'Flight Assistance', theme: 'theme-sky' },
+    { icon: <Car size={28} />, label: 'Airport Pickup', theme: 'theme-rose' },
+    { icon: <Hotel size={28} />, label: 'Hotel Accommodation', theme: 'theme-purple' },
+    { icon: <Headphones size={28} />, label: 'Interpreter Support', theme: 'theme-orange' },
+    { icon: <HeartHandshake size={28} />, label: 'Treatment Support', theme: 'theme-pink' },
+    { icon: <Sun size={28} />, label: 'Recovery & Wellness', theme: 'theme-emerald' },
+    { icon: <MessageSquareHeart size={28} />, label: 'Post-Treatment Follow-up', theme: 'theme-violet' },
   ];
 
   const treatments = [
@@ -394,56 +438,56 @@ const Home = () => {
   const whyChooseItems = [
     {
       num: '01',
-      icon: <Headphones size={28} className="why-icon" />,
-      title: '24/7 International Patient Support',
-      desc: 'Round-the-clock emergency medical coordination and instant response for international patients.',
-      badge: '24/7 Active Support',
-      highlights: ['Emergency Response', 'Direct WhatsApp Line', '24/7 On-Call Doctor'],
+      icon: <PhoneCall size={24} className="why-icon" />,
+      title: '24/7 Support',
+      desc: '24/7 instant medical coordination & emergency response.',
+      badge: '24/7 Active',
+      highlights: ['24/7 WhatsApp', 'On-Call Doctor'],
       theme: 'why-theme-blue'
     },
     {
       num: '02',
-      icon: <ShieldCheck size={28} className="why-icon" />,
-      title: 'Trusted NABH Hospital Network',
-      desc: 'Direct partnership with top JCI & NABH-accredited multi-specialty hospitals across Kerala.',
-      badge: 'NABH Accredited',
-      highlights: ['50+ Partner Hospitals', 'JCI & NABH Certified', 'Top Specialist Surgeons'],
+      icon: <Building2 size={24} className="why-icon" />,
+      title: 'Trusted Hospital Network',
+      desc: 'Top JCI & NABH accredited hospitals across Kerala.',
+      badge: 'NABH Partner',
+      highlights: ['50+ Hospitals', 'Top Surgeons'],
       theme: 'why-theme-emerald'
     },
     {
       num: '03',
-      icon: <UserCheck size={28} className="why-icon" />,
-      title: 'Dedicated Patient Coordinator',
-      desc: 'Your personal bilingual coordinator handles appointments, hospital admission, and daily ground support.',
-      badge: 'Single Point of Contact',
-      highlights: ['1-on-1 Personal Guide', 'Arabic & English Native', 'Hospital Admission Care'],
+      icon: <HeartHandshake size={24} className="why-icon" />,
+      title: 'Dedicated Coordinator',
+      desc: 'Personal bilingual guide for appointments & hospital care.',
+      badge: '1-on-1 Support',
+      highlights: ['Personal Guide', 'Ground Support'],
       theme: 'why-theme-indigo'
     },
     {
       num: '04',
-      icon: <Receipt size={28} className="why-icon" />,
-      title: 'Transparent Upfront Pricing',
-      desc: 'Detailed itemized cost estimates provided before you travel with zero surprise charges.',
+      icon: <CircleDollarSign size={24} className="why-icon" />,
+      title: 'Transparent Pricing',
+      desc: 'Itemized cost estimates with zero hidden charges.',
       badge: 'No Hidden Fees',
-      highlights: ['Itemized Cost Quote', 'Zero Hidden Charges', 'Free Cost Evaluation'],
+      highlights: ['Itemized Quote', 'No Extra Cost'],
       theme: 'why-theme-amber'
     },
     {
       num: '05',
-      icon: <Globe size={28} className="why-icon" />,
-      title: 'Native Multilingual Assistance',
-      desc: 'Fluent Arabic and English interpreters accompany you to every doctor consultation and hospital visit.',
+      icon: <Globe size={24} className="why-icon" />,
+      title: 'Multilingual Assistance',
+      desc: 'Arabic & English interpreters for all consultations.',
       badge: 'Arabic & English',
-      highlights: ['In-Person Interpreter', 'Doctor Consultation Help', 'Report Translation'],
+      highlights: ['Interpreter', 'Translation'],
       theme: 'why-theme-rose'
     },
     {
       num: '06',
-      icon: <Heart size={28} className="why-icon" />,
-      title: 'Care Beyond Treatment',
-      desc: 'Continued medical follow-ups with your operating surgeons even after your safe return home.',
-      badge: 'Post-Recovery Care',
-      highlights: ['Post-Return Follow-ups', 'Tele-health Consults', 'Medication Guidance'],
+      icon: <Stethoscope size={24} className="why-icon" />,
+      title: 'Post-Treatment Care',
+      desc: 'Surgeon follow-ups after your safe return home.',
+      badge: 'Post Recovery',
+      highlights: ['Follow-ups', 'Tele-Consults'],
       theme: 'why-theme-pink'
     },
   ];
@@ -453,12 +497,12 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="container hero-layout">
-          {/* Right Hero Image (Rendered First on Mobile) */}
+          {/* Right Hero Image */}
           <div className="hero-right">
             <div className="hero-image-wrapper">
               <img
-                src="/hero_patient_doctor.png"
-                alt="HAMD Med Connect Doctor Consultation with Middle Eastern Patient"
+                src="/hero_patient_family.jpg"
+                alt="HAMD Med Connect Happy Patient Family with Doctor in Kerala"
                 className="hero-img"
               />
             </div>
@@ -489,17 +533,7 @@ const Home = () => {
                 <ArrowRight size={18} className="btn-arrow-icon" />
               </Link>
 
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-hero-whatsapp-glass"
-              >
-                <div className="btn-icon-bubble whatsapp-bubble">
-                  <FaWhatsapp size={20} />
-                </div>
-                <span className="btn-text">WhatsApp Now</span>
-              </a>
+             
             </div>
 
             <div className="hero-serving-flags">
@@ -524,64 +558,64 @@ const Home = () => {
       <section className="services-strip-section">
         <div className="container">
           <div className="extraordinary-carousel-card">
-            {/* Header strip with title & sleek navigation controls */}
+            {/* Header strip with title */}
             <div className="carousel-top-bar">
               <div className="carousel-title-block">
                 <div className="carousel-badge-title">
                   <Sparkles size={16} className="sparkle-icon" />
                   <span>Patient Care & Services</span>
                 </div>
-                <div className="swipe-hint-pill">
-                  <span className="pulse-dot"></span>
-                  <span>Drag or Swipe</span>
-                </div>
-              </div>
-
-              <div className="carousel-arrow-group">
-                <button
-                  className="glass-carousel-arrow"
-                  onClick={scrollLeft}
-                  aria-label="Scroll left"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  className="glass-carousel-arrow"
-                  onClick={scrollRight}
-                  aria-label="Scroll right"
-                >
-                  <ChevronRight size={18} />
-                </button>
               </div>
             </div>
 
-            {/* Main Interactive Drag/Swipe Track */}
-            <div
-              className="extraordinary-slider-track"
-              ref={carouselRef}
-              onMouseEnter={() => setIsInteracting(true)}
-              onMouseLeave={() => handleUserInteraction()}
-              onMouseDown={handleMouseDown}
-              onMouseUp={handleMouseUp}
-              onMouseMove={handleMouseMove}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              onScroll={handleScroll}
-            >
-              {serviceItems.map((item, idx) => (
-                <Link
-                  to="/services"
-                  key={idx}
-                  className={`extraordinary-service-item ${item.theme} ${activeStep === idx ? 'item-active' : ''}`}
-                >
-                  <div className="icon-glow-ring"></div>
-                  <div className="extraordinary-icon-box">
-                    {item.icon}
-                  </div>
-                  <span className="extraordinary-item-label">{item.label}</span>
-                </Link>
-              ))}
+            {/* Slider Track Wrapper with Side Arrows */}
+            <div className="carousel-slider-wrapper">
+              <button
+                className={`carousel-side-arrow arrow-left ${!canScrollLeft ? 'arrow-hidden' : ''}`}
+                onClick={scrollLeft}
+                aria-label="Scroll left"
+                disabled={!canScrollLeft}
+              >
+                <ChevronLeft size={20} />
+              </button>
+
+              {/* Main Interactive Track */}
+              <div
+                className="extraordinary-slider-track"
+                ref={carouselRef}
+                onMouseEnter={() => setIsInteracting(true)}
+                onMouseLeave={() => handleUserInteraction()}
+                onMouseDown={handleMouseDown}
+                onMouseUp={handleMouseUp}
+                onMouseMove={handleMouseMove}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                onScroll={handleScroll}
+              >
+                {serviceItems.map((item, idx) => (
+                  <Link
+                    to="/services"
+                    key={idx}
+                    className={`extraordinary-service-item ${item.theme} ${activeStep === idx ? 'item-active' : ''}`}
+                  >
+                    <div className="icon-glow-ring"></div>
+                    <div className="extraordinary-icon-box">
+                      {item.icon}
+                    </div>
+                    <span className="extraordinary-item-label">{item.label}</span>
+                  </Link>
+                ))}
+              </div>
+
+              <button
+                className={`carousel-side-arrow arrow-right ${!canScrollRight ? 'arrow-hidden' : ''}`}
+                onClick={scrollRight}
+                aria-label="Scroll right"
+                disabled={!canScrollRight}
+              >
+                <ChevronRight size={20} />
+              </button>
             </div>
 
             {/* Bottom Progress Bar Navigation */}
@@ -695,39 +729,71 @@ const Home = () => {
             <div className="title-underline"></div>
           </div>
 
-          <div className="why-advantage-grid">
-            {whyChooseItems.map((item, idx) => (
-              <div
-                key={idx}
-                className={`advantage-card ${item.theme}`}
-                data-aos="fade-up"
-                data-aos-delay={idx * 80}
-              >
-                <div className="advantage-watermark">{item.num}</div>
-                
-                <div className="advantage-card-top">
-                  <div className="advantage-icon-box">
-                    <div className="advantage-glow-ring"></div>
-                    {item.icon}
+          {/* Mobile Swipe Hint Indicator */}
+          <div className="why-mobile-swipe-hint">
+            <span className="swipe-dot-pulse"></span>
+            <span>Swipe to explore 6 advantages</span>
+            <span className="swipe-arrow-anim">→</span>
+          </div>
+
+          {/* Why Advantage Slider Track Wrapper with Side Arrows */}
+          <div className="why-slider-wrapper">
+            <button
+              className={`why-side-arrow arrow-left ${!canScrollWhyLeft ? 'arrow-hidden' : ''}`}
+              onClick={scrollWhyLeft}
+              aria-label="Scroll left"
+              disabled={!canScrollWhyLeft}
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <div
+              className="why-advantage-grid"
+              ref={whyCarouselRef}
+              onScroll={updateWhyScrollProgress}
+            >
+              {whyChooseItems.map((item, idx) => (
+                <div
+                  key={idx}
+                  className={`advantage-card ${item.theme}`}
+                  data-aos="fade-up"
+                  data-aos-delay={idx * 80}
+                >
+                  <div className="advantage-watermark">{item.num}</div>
+                  
+                  <div className="advantage-card-top">
+                    <div className="advantage-icon-box">
+                      <div className="advantage-glow-ring"></div>
+                      {item.icon}
+                    </div>
+                    <span className="advantage-badge-chip">{item.badge}</span>
                   </div>
-                  <span className="advantage-badge-chip">{item.badge}</span>
+
+                  <h3 className="advantage-card-title">{item.title}</h3>
+                  <p className="advantage-card-desc">{item.desc}</p>
+
+                  <div className="advantage-highlights-list">
+                    {item.highlights.map((high, hIdx) => (
+                      <span key={hIdx} className="advantage-highlight-pill">
+                        <CheckCircle2 size={13} className="high-check-icon" />
+                        <span>{high}</span>
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="advantage-bottom-line"></div>
                 </div>
+              ))}
+            </div>
 
-                <h3 className="advantage-card-title">{item.title}</h3>
-                <p className="advantage-card-desc">{item.desc}</p>
-
-                <div className="advantage-highlights-list">
-                  {item.highlights.map((high, hIdx) => (
-                    <span key={hIdx} className="advantage-highlight-pill">
-                      <CheckCircle2 size={13} className="high-check-icon" />
-                      <span>{high}</span>
-                    </span>
-                  ))}
-                </div>
-
-                <div className="advantage-bottom-line"></div>
-              </div>
-            ))}
+            <button
+              className={`why-side-arrow arrow-right ${!canScrollWhyRight ? 'arrow-hidden' : ''}`}
+              onClick={scrollWhyRight}
+              aria-label="Scroll right"
+              disabled={!canScrollWhyRight}
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
         </div>
       </section>
