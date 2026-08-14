@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   UserCheck,
   Building2,
   FileText,
@@ -45,128 +46,89 @@ import {
 import { FaWhatsapp } from 'react-icons/fa';
 import './Home.css';
 
-// Crisp SVG Flag components for Middle Eastern countries
+// Official Crisp Flag components for GCC & International countries
 const OmanFlag = () => (
-  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon">
-    <circle cx="16" cy="16" r="15" fill="#E5E7EB" stroke="#E5E7EB" strokeWidth="1"/>
-    <g clipPath="url(#oman-clip)">
-      <rect width="32" height="32" fill="#FFFFFF"/>
-      <rect y="10.66" width="32" height="10.66" fill="#DC2626"/>
-      <rect y="21.33" width="32" height="10.66" fill="#16A34A"/>
-      <rect width="10.66" height="32" fill="#DC2626"/>
-    </g>
-    <defs>
-      <clipPath id="oman-clip">
-        <circle cx="16" cy="16" r="15"/>
-      </clipPath>
-    </defs>
-  </svg>
-);
-
-const UaeFlag = () => (
-  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon">
-    <circle cx="16" cy="16" r="15" fill="#E5E7EB" stroke="#E5E7EB" strokeWidth="1"/>
-    <g clipPath="url(#uae-clip)">
-      <rect width="32" height="10.66" fill="#16A34A"/>
-      <rect y="10.66" width="32" height="10.66" fill="#FFFFFF"/>
-      <rect y="21.33" width="32" height="10.66" fill="#1F2937"/>
-      <rect width="9" height="32" fill="#DC2626"/>
-    </g>
-    <defs>
-      <clipPath id="uae-clip">
-        <circle cx="16" cy="16" r="15"/>
-      </clipPath>
-    </defs>
-  </svg>
+  <img
+    src="https://flagcdn.com/w40/om.png"
+    srcSet="https://flagcdn.com/w80/om.png 2x"
+    width="22"
+    height="22"
+    alt="Oman Flag"
+    title="Oman"
+    className="flag-icon"
+  />
 );
 
 const SaudiFlag = () => (
-  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon" title="Saudi Arabia">
-    <circle cx="16" cy="16" r="15" fill="#047857" stroke="#E5E7EB" strokeWidth="1"/>
-    <g clipPath="url(#saudi-clip)">
-      <rect width="32" height="32" fill="#047857"/>
-      {/* Arabic Shahada Calligraphy Script */}
-      <g stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none">
-        <path d="M7.5 10.5V14.5M9.5 9V15M11.5 10V14.5M13.5 10.5V15M15.5 9V14.5M17.5 10V15M19.5 9V14.5M21.5 10V15M23.5 9.5V14" />
-        <path d="M7 14.5C9.5 16.5 13.5 14 16.5 16C19.5 14 22 16.5 24.5 14.5" strokeWidth="1.5" />
-      </g>
-      {/* Horizontal Sword pointing left */}
-      <path d="M24 19.5H9.5M9.5 19.5L11.5 18M9.5 19.5L11.5 21M22 18V21" stroke="#FFFFFF" strokeWidth="1.3" strokeLinecap="round"/>
-    </g>
-    <defs>
-      <clipPath id="saudi-clip">
-        <circle cx="16" cy="16" r="15"/>
-      </clipPath>
-    </defs>
-  </svg>
+  <img
+    src="https://flagcdn.com/w40/sa.png"
+    srcSet="https://flagcdn.com/w80/sa.png 2x"
+    width="22"
+    height="22"
+    alt="Saudi Arabia Flag"
+    title="Saudi Arabia"
+    className="flag-icon"
+  />
+);
+
+const UaeFlag = () => (
+  <img
+    src="https://flagcdn.com/w40/ae.png"
+    srcSet="https://flagcdn.com/w80/ae.png 2x"
+    width="22"
+    height="22"
+    alt="UAE Flag"
+    title="United Arab Emirates"
+    className="flag-icon"
+  />
 );
 
 const QatarFlag = () => (
-  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon">
-    <circle cx="16" cy="16" r="15" fill="#E5E7EB" stroke="#E5E7EB" strokeWidth="1"/>
-    <g clipPath="url(#qatar-clip)">
-      <rect width="32" height="32" fill="#881337"/>
-      <path d="M0 0H10L14 3.2L10 6.4L14 9.6L10 12.8L14 16L10 19.2L14 22.4L10 25.6L14 28.8L10 32H0V0Z" fill="#FFFFFF"/>
-    </g>
-    <defs>
-      <clipPath id="qatar-clip">
-        <circle cx="16" cy="16" r="15"/>
-      </clipPath>
-    </defs>
-  </svg>
+  <img
+    src="https://flagcdn.com/w40/qa.png"
+    srcSet="https://flagcdn.com/w80/qa.png 2x"
+    width="22"
+    height="22"
+    alt="Qatar Flag"
+    title="Qatar"
+    className="flag-icon"
+  />
 );
 
 const KuwaitFlag = () => (
-  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon">
-    <circle cx="16" cy="16" r="15" fill="#E5E7EB" stroke="#E5E7EB" strokeWidth="1"/>
-    <g clipPath="url(#kuwait-clip)">
-      <rect width="32" height="10.66" fill="#16A34A"/>
-      <rect y="10.66" width="32" height="10.66" fill="#FFFFFF"/>
-      <rect y="21.33" width="32" height="10.66" fill="#DC2626"/>
-      <path d="M0 0L10 16L0 32V0Z" fill="#1F2937"/>
-    </g>
-    <defs>
-      <clipPath id="kuwait-clip">
-        <circle cx="16" cy="16" r="15"/>
-      </clipPath>
-    </defs>
-  </svg>
+  <img
+    src="https://flagcdn.com/w40/kw.png"
+    srcSet="https://flagcdn.com/w80/kw.png 2x"
+    width="22"
+    height="22"
+    alt="Kuwait Flag"
+    title="Kuwait"
+    className="flag-icon"
+  />
 );
 
 const MaldivesFlag = () => (
-  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon" title="Maldives">
-    <circle cx="16" cy="16" r="15" fill="#DC2626" stroke="#E5E7EB" strokeWidth="1"/>
-    <g clipPath="url(#maldives-clip)">
-      <rect width="32" height="32" fill="#DC2626"/>
-      <rect x="7" y="7" width="18" height="18" fill="#16A34A" rx="2"/>
-      <path d="M18.5 12C16.8 13.2 16.8 18.8 18.5 20C15 20 13.5 13 18.5 12Z" fill="#FFFFFF"/>
-    </g>
-    <defs>
-      <clipPath id="maldives-clip">
-        <circle cx="16" cy="16" r="15"/>
-      </clipPath>
-    </defs>
-  </svg>
+  <img
+    src="https://flagcdn.com/w40/mv.png"
+    srcSet="https://flagcdn.com/w80/mv.png 2x"
+    width="22"
+    height="22"
+    alt="Maldives Flag"
+    title="Maldives"
+    className="flag-icon"
+  />
 );
 
 const KenyaFlag = () => (
-  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flag-icon" title="Kenya">
-    <circle cx="16" cy="16" r="15" fill="#E5E7EB" stroke="#E5E7EB" strokeWidth="1"/>
-    <g clipPath="url(#kenya-clip)">
-      <rect width="32" height="9.5" fill="#1F2937"/>
-      <rect y="9.5" width="32" height="1.5" fill="#FFFFFF"/>
-      <rect y="11" width="32" height="10" fill="#B91C1C"/>
-      <rect y="21" width="32" height="1.5" fill="#FFFFFF"/>
-      <rect y="22.5" width="32" height="9.5" fill="#15803D"/>
-      <ellipse cx="16" cy="16" rx="4" ry="7" fill="#B91C1C" stroke="#FFFFFF" strokeWidth="1"/>
-      <line x1="16" y1="8" x2="16" y2="24" stroke="#FFFFFF" strokeWidth="1.2"/>
-    </g>
-    <defs>
-      <clipPath id="kenya-clip">
-        <circle cx="16" cy="16" r="15"/>
-      </clipPath>
-    </defs>
-  </svg>
+  <img
+    src="https://flagcdn.com/w40/ke.png"
+    srcSet="https://flagcdn.com/w80/ke.png 2x"
+    width="22"
+    height="22"
+    alt="Kenya Flag"
+    title="Kenya"
+    className="flag-icon"
+  />
 );
 
 const Home = () => {
@@ -552,6 +514,22 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        {/* Scroll Down Button */}
+        <button
+          className="hero-scroll-down-btn"
+          onClick={() => {
+            const nextSection = document.querySelector('.services-strip-section');
+            if (nextSection) {
+              nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+          aria-label="Scroll to next section"
+        >
+          <div className="scroll-icon-ring">
+            <ChevronDown size={20} className="scroll-bounce-arrow" />
+          </div>
+        </button>
       </section>
 
       {/* Extraordinary Floating Services Strip Carousel */}
@@ -673,7 +651,7 @@ const Home = () => {
 
               <div className="gateway-card-action">
                 <Link to="/treatments" className="btn-gateway btn-gateway-treatments">
-                  <span>Go to Treatment Details Page</span>
+                  <span>Go to Treatment Details</span>
                   <ArrowRight size={20} className="btn-arrow-movable" />
                 </Link>
               </div>
@@ -706,7 +684,7 @@ const Home = () => {
 
               <div className="gateway-card-action">
                 <Link to="/services" className="btn-gateway btn-gateway-services">
-                  <span>Go to Services Page</span>
+                  <span>Go to Services</span>
                   <ArrowRight size={20} className="btn-arrow-movable" />
                 </Link>
               </div>

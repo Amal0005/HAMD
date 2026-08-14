@@ -15,7 +15,8 @@
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
   overflow: hidden;
-  min-height: 560px;
+  min-height: calc(100vh - 85px);
+  min-height: calc(100dvh - 85px);
   display: flex;
   align-items: center;
 }
@@ -188,9 +189,19 @@
 }
 
 .flag-icon {
-  display: block;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.flag-icon:hover {
+  transform: scale(1.2);
 }
 
 .serving-text {
@@ -225,6 +236,68 @@
   /* Smooth left-to-right fade mask so the image blends into background on desktop */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.8) 12%, #000000 100%);
   mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.8) 12%, #000000 100%);
+}
+
+/* Unique Minimalist Hero Scroll Down Button */
+.hero-scroll-down-btn {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-icon-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  transition: all 0.35s ease;
+  animation: floatPulse 2.5s infinite ease-in-out;
+}
+
+.scroll-bounce-arrow {
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.hero-scroll-down-btn:hover .scroll-icon-ring {
+  background: #073567;
+  border-color: #0284c7;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 30px rgba(7, 53, 103, 0.35);
+}
+
+.hero-scroll-down-btn:hover .scroll-bounce-arrow {
+  transform: translateY(2px);
+}
+
+@keyframes floatPulse {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18), 0 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    transform: translateY(6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 0 0 8px rgba(255, 255, 255, 0);
+  }
 }
 
 /* ==========================================================================
@@ -1098,9 +1171,21 @@
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
     color: #ffffff;
-    min-height: 560px;
+    min-height: calc(100vh - 64px);
+    min-height: calc(100dvh - 64px);
     display: flex;
     align-items: center;
+  }
+
+  .hero-scroll-down-btn {
+    bottom: 2rem;
+  }
+
+  .scroll-icon-ring {
+    width: 40px;
+    height: 40px;
+    background: rgba(15, 41, 74, 0.65);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
   }
 
   .hero-layout {
@@ -1256,6 +1341,7 @@
     display: flex;
     align-items: center;
     width: 100%;
+    z-index: 5;
   }
 
   .why-side-arrow {
@@ -1308,14 +1394,16 @@
     font-size: 0.75rem;
     font-weight: 700;
     color: #0284c7;
-    background: rgba(224, 242, 254, 0.7);
+    background: rgba(224, 242, 254, 0.85);
     border: 1px solid rgba(56, 189, 248, 0.35);
     padding: 0.35rem 0.9rem;
     border-radius: 100px;
-    margin: 0 auto 0.8rem auto;
+    margin: 0 auto 1.25rem auto;
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
     width: fit-content;
+    position: relative;
+    z-index: 2;
   }
 
   .swipe-dot-pulse {
@@ -1350,9 +1438,11 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 0.85rem;
-    padding: 0.9rem 1.8rem 1.2rem 1.8rem;
-    margin-top: 0.25rem;
+    padding: 0.5rem 1.5rem 1.25rem 1.5rem;
+    margin-top: 0;
     scrollbar-width: none; /* Hide scrollbar Firefox */
+    position: relative;
+    z-index: 5;
   }
 
   .why-advantage-grid::-webkit-scrollbar {
@@ -1370,6 +1460,7 @@
     padding: 1.1rem 1rem 1rem 1rem;
     box-shadow: 0 10px 25px rgba(7, 53, 103, 0.08);
     position: relative;
+    z-index: 6;
     overflow: hidden;
     transition: transform 0.3s ease, border-color 0.3s ease;
   }
