@@ -1371,10 +1371,10 @@
     margin-top: auto;
     margin-right: auto;
     margin-left: auto;
-    background: rgba(255, 255, 255, 0.42);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
     border-radius: 20px;
     padding: 0.85rem 1rem;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -1459,13 +1459,13 @@
     width: fit-content;
     max-width: 90%;
     margin: 0.5rem auto 0 auto;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
     border-radius: 16px;
     padding: 0.65rem 0.9rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
 
   .flags-row {
@@ -1477,11 +1477,11 @@
   .serving-text {
     text-align: center;
     margin: 0 auto;
-    color: #0f294a;
-    font-weight: 600;
-    font-size: 0.78rem;
+    color: #061a33;
+    font-weight: 700;
+    font-size: 0.8rem;
     line-height: 1.35;
-    text-shadow: none;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
   }
 
   .cta-banner-content {

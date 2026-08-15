@@ -630,6 +630,9 @@ const Home = () => {
                   <Link to="/oncology" className="gateway-tag">Oncology</Link>
                   <Link to="/ivf-fertility" className="gateway-tag">IVF Care</Link>
                   <Link to="/neurology" className="gateway-tag">Neurology</Link>
+                  <Link to="/urology" className="gateway-tag">Urology</Link>
+                  <Link to="/gastroenterology" className="gateway-tag">Gastroenterology</Link>
+                  <Link to="/neurology" className="gateway-tag">Neurosurgery</Link>
                 </div>
               </div>
 
