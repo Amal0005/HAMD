@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.25rem;
 }
 
 .navbar-logo {
@@ -31,8 +32,7 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  flex: 1;
-  /* Takes up equal space as actions to perfectly center links */
+  flex: 0 0 auto;
 }
 
 .navbar-logo span {
@@ -41,45 +41,46 @@
 }
 
 .logo-img {
-  height: 60px;
-  /* Base height */
+  height: 68px;
   width: auto;
   display: block;
-  transform: scale(1.8);
-  /* Slightly scaled so it's not too small, but doesn't overlap */
-  transform-origin: left center;
-  margin-left: 20px;
-  /* Compensate for scaling to left */
+  object-fit: contain;
+  margin-left: 0;
+  transform: none;
+  transition: height 0.3s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .logo-img {
-    height: 60px;
-    margin-left: -5px;
-    /* Moves logo to the left on mobile */
+    height: 56px;
+    margin-left: 0;
   }
 }
 
 .navbar-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.85rem;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
 .navbar-actions {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 0.65rem;
 }
 
 .nav-link {
-  color: var(--text-main);
-  font-weight: 500;
-  font-size: 1rem;
+  color: #0f294a;
+  font-weight: 600;
+  font-size: 0.98rem;
+  white-space: nowrap;
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
+  text-decoration: none;
 }
 
 .nav-link::after {
@@ -288,7 +289,7 @@
   width: 100%;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1080px) {
   .navbar {
     padding: 0.65rem 0;
     background: rgba(255, 255, 255, 0.95);
@@ -303,11 +304,15 @@
   }
 
   .desktop-nav {
-    display: none;
+    display: none !important;
   }
 
   .mobile-toggle {
     display: block;
+  }
+
+  .mobile-search-btn {
+    display: flex;
   }
 }
 
@@ -337,4 +342,56 @@
 
 .navbar-whatsapp-btn .whatsapp-icon {
   color: #ffffff;
+}
+
+.navbar-search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.58rem 1.25rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #475569;
+  background-color: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-search-btn:hover {
+  background-color: #e0f2fe;
+  color: #0284c7;
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.15);
+}
+
+.mobile-search-btn {
+  display: none;
+  background: #f1f5f9;
+  border: 1.5px solid #e2e8f0;
+  color: #0369a1;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+.mobile-search-btn:hover {
+  background: #e0f2fe;
+  color: #0284c7;
+  border-color: #bae6fd;
+}
+
+@media (max-width: 991px) {
+  .mobile-search-btn {
+    display: flex;
+  }
 }

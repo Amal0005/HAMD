@@ -29,7 +29,8 @@ import {
   Sparkles,
   Award,
   PhoneCall,
-  Clock
+  Clock,
+  Hand
 } from 'lucide-react';
 import {
   GiHeartOrgan,
@@ -43,7 +44,7 @@ import {
   GiStomach,
   GiLotus
 } from 'react-icons/gi';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaHandPointDown } from 'react-icons/fa';
 import './Home.css';
 
 // Official Crisp Flag components for GCC & International countries
@@ -119,17 +120,6 @@ const MaldivesFlag = () => (
   />
 );
 
-const KenyaFlag = () => (
-  <img
-    src="https://flagcdn.com/w40/ke.png"
-    srcSet="https://flagcdn.com/w80/ke.png 2x"
-    width="22"
-    height="22"
-    alt="Kenya Flag"
-    title="Kenya"
-    className="flag-icon"
-  />
-);
 
 const Home = () => {
   const carouselRef = useRef(null);
@@ -459,18 +449,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="container hero-layout">
-          {/* Right Hero Image */}
-          <div className="hero-right">
-            <div className="hero-image-wrapper">
-              <img
-                src="/hero_patient_family.jpg"
-                alt="HAMD Med Connect Happy Patient Family with Doctor in Kerala"
-                className="hero-img"
-              />
-            </div>
-          </div>
-
-          {/* Left Hero Content (Rendered Below Image on Mobile) */}
+          {/* Left Hero Content */}
           <div className="hero-left">
             <div className="hero-subheading-badge">
               <Sparkles size={14} className="badge-sparkle-icon" />
@@ -494,8 +473,6 @@ const Home = () => {
                 <span className="btn-text">Get Free Medical Opinion</span>
                 <ArrowRight size={18} className="btn-arrow-icon" />
               </Link>
-
-             
             </div>
 
             <div className="hero-serving-flags">
@@ -506,10 +483,9 @@ const Home = () => {
                 <QatarFlag />
                 <KuwaitFlag />
                 <MaldivesFlag />
-                <KenyaFlag />
               </div>
               <span className="serving-text">
-                Proudly serving patients from Oman, Saudi Arabia, UAE, Qatar, Kuwait, Maldives, Kenya and across the world.
+                Proudly serving patients from Oman, Saudi Arabia, UAE, Qatar, Kuwait, Maldives and across the world.
               </span>
             </div>
           </div>
@@ -526,8 +502,16 @@ const Home = () => {
           }}
           aria-label="Scroll to next section"
         >
-          <div className="scroll-icon-ring">
-            <ChevronDown size={20} className="scroll-bounce-arrow" />
+          <div className="finger-swipe-container">
+            <div className="touch-ripple-circle"></div>
+            <div className="arrow-trail-wrapper">
+              <span className="trail-dot dot-1"></span>
+              <span className="trail-dot dot-2"></span>
+              <ChevronDown size={18} className="trail-arrow" />
+            </div>
+            <div className="swiping-finger-hand">
+              <FaHandPointDown size={30} />
+            </div>
           </div>
         </button>
       </section>

@@ -1,58 +1,85 @@
 import React from 'react';
-import { Leaf, ShieldCheck, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Leaf, UserCheck, CheckCircle2, Sparkles, Palmtree, HeartHandshake, ArrowRight } from 'lucide-react';
 import './PageStyles.css';
 
 const WellnessAyurveda = () => {
-  const therapies = [
-    "Ayurveda Treatments",
-    "Detox & Rejuvenation Programs",
-    "Therapeutic Massage & Healing"
+  const ayurvedaFeatures = [
+    {
+      icon: <Leaf size={24} />,
+      title: "Authentic Ayurveda",
+      desc: "Traditional Kerala Ayurvedic care"
+    },
+    {
+      icon: <UserCheck size={24} />,
+      title: "Experienced Practitioners",
+      desc: "Care from qualified Ayurveda professionals"
+    },
+    {
+      icon: <CheckCircle2 size={24} />,
+      title: "Personalised Care",
+      desc: "Treatment plans based on individual needs"
+    },
+    {
+      icon: <Sparkles size={24} />,
+      title: "Panchakarma & Wellness",
+      desc: "Traditional therapies and rejuvenation programmes"
+    },
+    {
+      icon: <Palmtree size={24} />,
+      title: "Kerala Ayurveda",
+      desc: "Experience Ayurveda in its traditional home"
+    },
+    {
+      icon: <HeartHandshake size={24} />,
+      title: "Complete Support",
+      desc: "Appointments, accommodation, transport & coordination"
+    }
   ];
 
   return (
     <div className="page-container animate-fade-in">
-      <section className="page-header" style={{ background: 'linear-gradient(135deg, #059669 0%, #34d399 100%)' }}>
+      <section className="page-header" style={{ background: 'linear-gradient(135deg, #059669 0%, #047857 100%)', padding: '4rem 0 3.5rem 0' }}>
         <div className="container text-center">
-          <h1>Wellness & Ayurveda</h1>
-          <p>Natural Healing & Wellness</p>
+          <div className="ayurveda-badge mb-md" style={{ background: 'rgba(255,255,255,0.18)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.3)', margin: '0 auto 1.25rem auto' }}>
+            <Leaf size={16} />
+            <span>Ayurveda</span>
+          </div>
+          <h1 style={{ color: '#ffffff', fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', fontWeight: 800, marginBottom: '1rem' }}>
+            Discover Ayurveda in Kerala
+          </h1>
+          <p style={{ color: '#d1fae5', fontSize: '1.15rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
+            Experience traditional Ayurvedic care in Kerala with personalised treatment, wellness programmes and complete support from HAMD.
+          </p>
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="section-padding bg-light">
         <div className="container">
-          <div className="content-grid">
-            <div className="content-text">
-              <h2 className="section-title">Restore Your Inner Balance</h2>
-              <p className="large-text mb-lg">
-                Experience the ancient wisdom of Ayurveda combined with modern luxury for complete rejuvenation.
-              </p>
-              
-              <ul style={{ padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
-                {therapies.map((therapy, idx) => (
-                  <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1.1rem', fontWeight: '500' }}>
-                    <div style={{ background: '#d1fae5', padding: '0.5rem', borderRadius: '50%', color: '#059669' }}>
-                      <Leaf size={20} />
-                    </div>
-                    {therapy}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="section-title text-center mb-xl">
+            <h2>Our Authentic Ayurvedic Offerings</h2>
+            <p className="text-muted">Comprehensive Panchakarma, detox & traditional rejuvenation care in Kerala</p>
+          </div>
 
-            <div className="trust-grid" style={{ gridTemplateColumns: '1fr', gap: '1rem' }}>
-              <div className="trust-item" style={{ flexDirection: 'row' }}>
-                <Star className="trust-icon" />
-                <h4 style={{ margin: 0 }}>Holistic Approach</h4>
+          <div className="ayurveda-features-grid mb-xl">
+            {ayurvedaFeatures.map((item, idx) => (
+              <div className="ayurveda-feature-card" key={idx} data-aos="fade-up" data-aos-delay={idx * 80}>
+                <div className="ayurveda-icon-wrapper">
+                  {item.icon}
+                </div>
+                <div className="ayurveda-feature-info">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
               </div>
-              <div className="trust-item" style={{ flexDirection: 'row' }}>
-                <ShieldCheck className="trust-icon" />
-                <h4 style={{ margin: 0 }}>Experienced Therapists</h4>
-              </div>
-              <div className="trust-item" style={{ flexDirection: 'row' }}>
-                <Star className="trust-icon" />
-                <h4 style={{ margin: 0 }}>Peaceful Recovery Environment</h4>
-              </div>
-            </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <Link to="/contact" className="btn-ayurveda-cta">
+              <span>Book Free Consultation with Ayurveda Specialist</span>
+              <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>
